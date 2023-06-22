@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investigation</title>
-    <link rel="stylesheet" href="layout.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="/style/index.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body class="body">
@@ -48,29 +48,30 @@
                         <p id="inside_confirm_p">If you have collected all the relevant information
                             you can now move to the analysis phase.</p>
                         <button onclick="isConfirm(false)" class="confirm_btn">Back to Investigation</button>
-                        <button onclick="location.href='layout_part_2.html#analysis';" class="confirm_btn">Move to
+                        <button onclick="location.href='calculator_question_1.html#analysis';" class="confirm_btn">Move
+                            to
                             Analysis</button>
                     </div>
                 </div>
                 <button class="end_btn" onclick="showConfirmBox()">Complete Investigation</button>
-                <div id="objective">
-                    <h1 id="research_info_title"><b>Research Information</b></h1>
+                <div id="objective" class=container>
+                    <div id="research_info_title" class=container>Research Information</div>
                     <h3 class="the_main_text">You have been hired as a researcher in the Whitesand archipelago, a
                         protected area where multiple rare species live. As a researcher, we
                         will provide data on the endangered Longtail Monkeys of the island.</h3>
                     <br>
                     <div class="container">
-                        <div class="draggable" id="objective_line" data-title="Objective">OBJECTIVE:
+                        <div class="draggable" id="objective_line" data-title="Goal">OBJECTIVE:
                             Understand if the new
                             feeding program will help Longtail
                             Monkeys to survive at the end of Year 10 in Maya Forest and Blue
                             Lagoon according to the study goal.</div>
                     </div>
                 </div>
-                <div id="first_exhibit">
-                    <h1><i>Exhibit 1: Banana and Mango tree reserves – End of Year 8</i></h1>
+                <div id="first_exhibit" class="container">
+                    Exhibit 1: Banana and Mango tree reserves – End of Year 8
                     <div class="island">
-                        <img src="the_island.png" alt="the island">
+                        <img src="/img/the_island.png" alt="the island">
                         <div class="draggable" id="exhibit_draggable1" data-title="Banana's at Chocolate rock">
                             55
                         </div>
@@ -83,10 +84,10 @@
                         <div class="draggable" id="exhibit_draggable8" data-title="Mango's at South beach">34</div>
                     </div>
                 </div>
-                <div id="second_exhibit">
-                    <h1><i>Exhibit 2: number of Longtail Monkeys – End of year numbers</i></h1>
+                <div id="second_exhibit" class="container">
+                    Exhibit 2: number of Longtail Monkeys – End of year numbers
                     <div class="chart">
-                        <img src="layout_1_chart.png" alt="the chart">
+                        <img src="/img/layout_1_chart.png" alt="the chart">
                         <div class="draggable" id="exhibit2_draggable1" data-title="Monkeys in Blue Lagoon, Y1">12</div>
                         <div class="draggable" id="exhibit2_draggable2" data-title="Monkeys in South Beach, Y1">8</div>
                         <div class="draggable" id="exhibit2_draggable3" data-title="Monkeys in Chocolate Rock, Y1">4
@@ -112,9 +113,10 @@
                         <div class="draggable" id="exhibit2_draggable16" data-title="Monkeys in Maya Forest, Y4">8</div>
                     </div>
                 </div>
-                <div id="study">
-                    <h1><b> WHITESAND ARCHIPELAGO FLORA AND FAUNA</b></h1>
-                    <div>The current protection study at Whitesand includes two main types of
+                <div id="study" class="container">
+                    WHITESAND ARCHIPELAGO FLORA AND FAUNA
+                    <div class="container"> <br>
+                        The current protection study at Whitesand includes two main types of
                         animals: monkeys and hyenas. The ratio between the two types of
                         animals has always been
                         <div class="draggable study_drag" draggable="true" data-title="Monkeys for 3 Hayaenas">10</div>
@@ -126,7 +128,7 @@
                         while the <div class="draggable study_drag" draggable="true"
                             data-title="Evolution of Hayaenas in Y8 Hayaenas">number of hyaenas didn’t change</div>
                         <br><br>
-                        <div>The main food source for Monkeys is the Whitesand banana tree
+                        <div class="container">The main food source for Monkeys is the Whitesand banana tree
                             <div class="draggable study_drag" draggable="true"
                                 data-title="Ratio of banana trees /monkeys">The
                                 ratio between banana trees and monkeys in Year
@@ -137,12 +139,13 @@
                             data-title="General evolution of banana trees">The
                             number of banana trees doesn’t change between
                             years</div>
-                        <div>, with the
+                        <div class="container">, with the
                             exception of Maya Forest, where it is expected to decrease by</div>
                         <div class="draggable study_drag" draggable="true"
                             data-title="Maya Forest yearly decrease of trees">
                             10%</div>
-                        <div>before the end of each year,<br> In order to reach the target number of Longtail Monkeys,
+                        <div class="container">before the end of each year,<br> In order to reach the target number of
+                            Longtail Monkeys,
                             the
                             research
                             team can move the banana trees from one area to the other. For every
@@ -152,7 +155,7 @@
                             environment.
                         </div>
                         <br>
-                        <div>The research team has currently defined the following activities to be
+                        <div class="container">The research team has currently defined the following activities to be
                             completed at the end of year 9:</div>
                         <div class="draggable study_drag" draggable="true" data-title="Activity in Chocolate Rock">Move
                             10
@@ -173,12 +176,12 @@
         </div>
         <div class="right_screen" id="journal_container">
             <div class="journal_container">
-                <h2>Research Journal</h2>
+                Research Journal
                 <hr>
             </div>
         </div>
     </div>
-    <script src="layout.js"></script>
+    <script src="/js/index.js"></script>
 </body>
 
 </html>
