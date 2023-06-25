@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 8</title>
+    <link rel="stylesheet" href="case_eight.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+</head>
+<body>
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <h1>The research team has identified the following data in South Beach:</h1>
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div>
+                <h1>question</h1>
+                <p>Which information is true based on the data provided? You can select multiple options.</p>
+                <br>
+                <form>
+                    <input type="radio" name="one" id="one" name="one" value="one">
+                    <label for="one">A lower number of crocodiles is correlated with an above-average number of frogs the following year</label>
+                    <br>
+                    <input type="radio" name="two" id="two" name="two" value="two">
+                    <label for="two">Each crocodile eats exactly 5 frogs</label>
+                    <br>
+                    <input type="radio" name="three" id="three" name="three" value="three">
+                    <label for="three">There is no correlation between Phytons’ and Crocodiles’ numbers</label>
+                    <br>
+                    <input type="radio" name="four" id="four" name="four" value="four">
+                    <label for="four">Phytons eat both crocodiles and frogs</label>
+                </form>
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                      <h2>Do you want to move to the next question?</h2>
+                      <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                      <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_nine.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                  </div>
+                  <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="case_eight.js"></script>
+</body>
+</html>

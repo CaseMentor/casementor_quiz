@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 $(function () {
     // Make elements with class 'draggable' draggable
-    $(".draggable").draggable({
+    $(".draggable, .sortable").draggable({
         helper: function () {
             return $(this).clone().css("z-index", 1000).appendTo('body');
         },
@@ -68,11 +68,36 @@ $(".input_answer").droppable({
         $(this).val(ui.helper.text());
     }
 });
-$("#Journal_container").droppable({
-    accept: ".draggable",
+$(".journal_container").droppable({
+    accept: ".draggable , .sortable",
+    tolerance: "pointer",
     drop: function (event, ui) {
-        $(this).val(ui.helper.text());
+        if (ui.draggable.hasClass('draggable')) {
+            var newElem = $(ui.helper).clone(false);
+            newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
+            // Add a title to the new element
+            newElem.removeClass('draggable');
+            newElem.addClass('sortable')
+            newElem.prepend("<div class='title' contenteditable='true'>" + 'Calculator Result' + "</div>");
+            // Add a horizontal line after the new element
+            newElem.appendTo(this);
+            newElem.append("<button class='remove'>X</button>");
+            var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
+            wrapper.appendTo(this);
+            $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+            // your droppable-tile code
+        }
+        else if (ui.draggable.hasClass('sortable')) {
+            var newElem = $(ui.draggable);
+            newElem.removeClass('ui-draggable ui-draggable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+            newElem.next('hr').remove();
+            // newElem.appendTo(this);
+            var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
+            wrapper.appendTo(this);
+            // Make the 'right_screen' container sortable
+        }
     }
+    // log the dropped element 
 });
 $(".report_input").droppable({
     accept: ".draggable",

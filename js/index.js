@@ -40,7 +40,7 @@ var x = setInterval(function () {
 
 $(function () {
   // Make elements with class 'draggable' draggable
-  $(".draggable").draggable({
+  $(".draggable, .sortable").draggable({
     helper: function () {
       return $(this).clone().css("z-index", 10).appendTo('body');
     },
@@ -48,28 +48,56 @@ $(function () {
     start: function () {
       // Change the appearance of the original element as soon as the drag starts
       $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
-      // .draggable('disable');
+
     }
   });
+
 
   // Make the 'Journal_container' a droppable for the draggable
   $(".right_screen").droppable({
     accept: ".draggable",
     tolerance: "pointer",
     drop: function (event, ui) {
-      var newElem = $(ui.helper).clone(false);
-      newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
-      var title = ui.helper.data('title');
-      // Add a title to the new element
-      newElem.prepend("<div class='title'>" + title + "</div>");
-      // Add a horizontal line after the new element
+      if (ui.draggable.hasClass('draggable')) {
+        var newElem = $(ui.helper).clone(false);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.removeClass('draggable');
+        newElem.addClass('sortable')
+        var title = ui.helper.data('title');
+        // Add a title to the new element
+        newElem.prepend("<div class='title' contenteditable='true'>" + title + "</div>");
+        // Add a horizontal line after the new element
+        newElem.appendTo(this);
+        newElem.append("<button class='remove'>X</button>");
+        newElem.appendTo(this);
+        // $("<hr>").appendTo(this);
+        $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+      }
+      else if (ui.draggable.hasClass('sortable')) {
+        var newElem = $(ui.draggable);
+        newElem.removeClass('ui-draggable ui-draggable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.next('hr').remove();
+        // newElem.appendTo(this);
+        newElem.appendTo(this);
+      }
+      // Make the 'right_screen' container sortable
+    }
+    // Make the 'right_screen' container sortable
+  }// log the dropped element 
+  );
 
-      newElem.appendTo(this);
-      $("<hr>").appendTo(this);
-
-    }// log the dropped element
+  $(document).on('click', '.remove', function () {
+    $(this).parent().next('hr').remove();
+    $(this).closest('div').remove();
   });
+
+  $(".sortable").sortable({})
 });
+
+
+
+
+
 
 
 $("#sort1,#sort2").disableSelection();

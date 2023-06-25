@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 9</title>
+    <link rel="stylesheet" href="case_nine.css">
+</head>
+<body>
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <h1>The following table summarizes the number of lizards in South Beach</h1>
+            <table>
+                <tr>
+                    <th>Subareas</th>
+                    <th>Y10</th>
+                    <th>Y11</th>
+                    <th>Y12</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>22</td>
+                    <td>25</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>33</td>
+                    <td>36</td>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>22</td>
+                    <td>27</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>61</td>
+                    <td>59</td>
+                    <td>63</td>
+                </tr>
+            </table>
+            <br>
+            <h1>Question</h1>
+            <p>Report the median and mode for Y10-Y11 and Y11-Y12</p>
+            <form>
+                <label for="median_y10_y11">Median Y10-Y11</label>
+                <select name="median_y10_y11" id="median_y10_y11">
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="31">31</option>
+                    <option value="33">33</option>
+                    <option value="36">36</option>
+                    <option value="42">42</option>
+                    <option value="59">59</option>
+                    <option value="61">61</option>
+                    <option value="63">63</option>
+                </select>
+                <br>
+                <label for="mode_y10_y11">Mode Y10-Y11</label>
+                <select name="mode_y10_y11" id="mode_y10_y11">
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="31">31</option>
+                    <option value="33">33</option>
+                    <option value="36">36</option>
+                    <option value="42">42</option>
+                    <option value="59">59</option>
+                    <option value="61">61</option>
+                    <option value="63">63</option>
+                </select>
+                <br>
+                <label for="median_y11_y12">Median Y11-Y12</label>
+                <select name="median_y11_y12" id="median_y11_y12">
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="31">31</option>
+                    <option value="33">33</option>
+                    <option value="36">36</option>
+                    <option value="42">42</option>
+                    <option value="59">59</option>
+                    <option value="61">61</option>
+                    <option value="63">63</option>
+                </select>
+                <br>
+                <label for="mode_y11_y12">Mode Y11-Y12</label>
+                <select name="mode_y11_y12" id="mode_y11_y12">
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="25">25</option>
+                    <option value="27">27</option>
+                    <option value="31">31</option>
+                    <option value="33">33</option>
+                    <option value="36">36</option>
+                    <option value="42">42</option>
+                    <option value="59">59</option>
+                    <option value="61">61</option>
+                    <option value="63">63</option>
+                </select>
+            </form>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                      <h2>Do you want to move to the next question?</h2>
+                      <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                      <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_ten.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                  </div>
+                  <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+                </div>
+            </div>
+        </div>
+        <script src="case_nine.js"></script>
+</body>
+</html>

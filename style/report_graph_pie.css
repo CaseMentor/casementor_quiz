@@ -171,7 +171,6 @@
 
 
 .overlay {
-  border: 3px solid var(--capiton);
   border-radius: 10px;
   background-color: var(--capiton);
   color: var(--just_black);
@@ -186,7 +185,7 @@
   bottom: 0;
   left: 0;
   background: fixed;
-  z-index: 2;
+  z-index: 1001;
 }
 
 .confirm-box {
@@ -296,7 +295,8 @@
 
 }
 
-.right_screen .draggable {
+.right_screen .draggable,
+.right_screen .sortable {
   margin: 10px;
   border: 0px;
   width: fit-content;
@@ -314,4 +314,10 @@
   width: 25vw;
   /* overflow-x: hidden; */
   overflow-y: scroll;
+}
+
+.sortable .remove {
+  position: absolute;
+  top: -2px;
+  right: -20px;
 }

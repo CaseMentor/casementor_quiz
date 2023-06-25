@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 3</title>
+    <link rel="stylesheet" href="case_three.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body>
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <br>
+            <h1>Researchers have analyzed the main source of food of Blue Monkeys in Maya Forest for different areas
+            </h1>
+            <br>
+            <p>Average daily consumption</p>
+            <img src="./img/cases_bar_chart.png" alt="cases_bar_chart">
+            <div class="question_container">
+                Question
+                <p>Which is the fruit with the highest median and highest mean consumption?</p>
+                <label for="Median">Median</label>
+                <select id="Median" name="Median">
+                    <option value="Median_Banana">Banana</option>
+                    <option value="Median_Mango">Mango</option>
+                    <option value="Median_Fig">Fig</option>
+                    <option value="Median_Drupe">Drupe</option>
+                </select>
+                <br>
+                <label for="Mean">Mean</label>
+                <select id="Mean" name="Mean">
+                    <option value="Mean_Banana">Banana</option>
+                    <option value="Mean_Mango">Mango</option>
+                    <option value="Mean_Fig">Fig</option>
+                    <option value="Mean_Drupe">Drupe</option>
+                </select>
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        Do you want to move to the next question?
+                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_four.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="case_three.js"></script>
+</body>
+
+</html>

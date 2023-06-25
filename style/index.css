@@ -10,6 +10,11 @@
     --inner: #222a35;
 }
 
+.body {
+    min-width: 600px;
+    min-width: 600px;
+}
+
 /* the whole page css */
 * {
     box-sizing: border-box;
@@ -86,7 +91,7 @@
 
 /*build the menu style*/
 .menu {
-    width: 200px;
+    width: 150px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -137,7 +142,7 @@
 
 /*the sub-menu buttons*/
 .smenu {
-    background-color: var(--inner);
+    background-color: var(--outer);
     overflow: hidden;
     transition: max-height 0.3s;
     max-height: 0;
@@ -182,7 +187,7 @@
     flex-direction: column;
     background-color: var(--inner) !important;
     padding: 20px 20px;
-    width: 400px;
+    width: 25%;
     overflow-x: hidden;
     overflow-y: scroll;
     margin: 10px;
@@ -491,7 +496,8 @@
 }
 
 .draggable,
-.draggable_widget {
+.draggable_widget,
+.sortable {
     background-color: var(--capiton);
     color: var(--just_black);
     border: 1px var(--just_black);
@@ -510,6 +516,23 @@
     border: 1px var(--just_black);
 }
 
+.sortable .title {
+    background-color: var(--inner);
+}
+
+.right_screen .div {
+    background-color: var(--inner);
+
+}
+
+.right_screen .sortable {
+    margin: 10px;
+    border: 0px;
+    width: fit-content;
+    background-color: var(--capiton);
+    color: var(--just_black);
+    border: 1px var(--just_black);
+}
 
 
 .afterDrag {
@@ -552,9 +575,26 @@
 }
 
 .journal_container {
-    background-color: var(--inner) !important;
+    background-color: var(--inner);
 }
 
 .draggable .title {
-    background-color: var(--inner) !important;
+    background-color: var(--inner);
+}
+
+.remove {
+    position: absolute;
+    top: -2px;
+    right: -20px;
+}
+
+#count_down {
+    position: absolute;
+    left: 40%;
+}
+
+.sortable .remove {
+    position: absolute;
+    top: -2px;
+    right: -20px;
 }
