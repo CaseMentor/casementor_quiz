@@ -62,20 +62,19 @@ $(function () {
         var newElem = $(ui.helper).clone(false);
         newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
         newElem.removeClass('draggable');
-        newElem.addClass('sortable')
         var title = ui.helper.data('title');
+        newElem.addClass('sortable')
         // Add a title to the new element
         newElem.prepend("<div class='title' contenteditable='true'>" + title + "</div>");
         // Add a horizontal line after the new element
-        newElem.appendTo(this);
         newElem.append("<button class='remove'>X</button>");
         newElem.appendTo(this);
         // $("<hr>").appendTo(this);
-        $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+        $(this).sortable().removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
       }
       else if (ui.draggable.hasClass('sortable')) {
         var newElem = $(ui.draggable);
-        newElem.removeClass('ui-draggable ui-draggable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
         newElem.next('hr').remove();
         // newElem.appendTo(this);
         newElem.appendTo(this);
@@ -91,7 +90,7 @@ $(function () {
     $(this).closest('div').remove();
   });
 
-  $(".sortable").sortable({})
+  //   $(".sortable").sortable({})
 });
 
 

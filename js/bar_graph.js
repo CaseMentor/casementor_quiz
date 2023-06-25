@@ -62,12 +62,19 @@ $(function () {
 
 });
 
-$(".input_answer").droppable({
-    accept: ".draggable",
-    drop: function (event, ui) {
-        $(this).val(ui.helper.text());
-    }
-});
+$(function () {
+    $(".input_answer, .report_input").droppable({
+        accept: ".draggable, .sortable",
+        drop: function (event, ui) {
+            let totalValue = ui.helper.text();
+            let dataTitle = ui.helper.attr('data-title');
+            let otherTitle = ui.helper.attr('title');
+            // get the value by replacing the data-title from totalValue
+            let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
+            $(this).val($(this).val() + value);
+        }
+    });
+})
 $(".journal_container").droppable({
     accept: ".draggable , .sortable",
     tolerance: "pointer",
@@ -99,16 +106,7 @@ $(".journal_container").droppable({
     }
     // log the dropped element 
 });
-$(".report_input").droppable({
-    accept: ".draggable",
-    drop: function (event, ui) {
-        let totalValue = ui.helper.text();
-        let dataTitle = ui.helper.attr('data-title');
-        let value = totalValue.replace(dataTitle, '').trim();
-        $(this).val($(this).val() + value);
 
-    }
-});
 $('.calculator-btn').click(function () {
     const value = $(this).data('value');
     if (value === "AC") { // Clear the input field when 'AC' is clicked

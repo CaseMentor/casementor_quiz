@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Cases | Case 1</title>
     <link rel="stylesheet" href="case_one.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
-<body>
+<body class=".body">
     <p id="count_down"></p>
     <br>
     <div id="row">
@@ -20,7 +24,7 @@
                     <li class="item" id="invest">
                         <a href="#invest" class="btn_active">Case Questions</a>
                         <div class="smenu">
-                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="btn_active">Case 1</a>
                             <a href="#" class="target">Case 2</a>
                             <a href="#" class="target">Case 3</a>
                             <a href="#" class="target">Case 4</a>
@@ -61,7 +65,7 @@
                         <td class="draggable" draggable="true">22</td>
                     </tr>
                 </table>
-                <h1>Question</h1>
+                <div class="question_title">Question</div>
                 <p id="the_question">If the total number of monkey species on the island is
                 <p class="draggable small_drag" draggable="true">12</p> and
                 there is an average of <p class="draggable small_drag" draggable="true">20</p> animals for each species,
@@ -70,8 +74,7 @@
                 </p>
                 <label for="answer">Answer</label>
                 <br>
-                <br>
-                <input type="number" name="answer" id="answer" min="0" required>
+                <input class="input_answer" type="number" name="answer" id="answer" min="0" required>
             </div>
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
@@ -92,14 +95,15 @@
             <div class="calculator">
                 <div class="display">
                     <input type="text" id="inputField">
-                    <div id="result" class="draggable" draggable="true"></div>
                     <hr id="sep_line">
+                    <div id="result" class="draggable" draggable="true"> 0 </div>
+
                 </div>
                 <div class="buttons">
-                    <button class="calculator-btn items">AC</button>
+                    <button class="calculator-btn items" data-value="AC">AC</button>
                     <button class="calculator-btn items" data-value="(">(</button>
                     <button class="calculator-btn items" data-value=")">)</button>
-                    <button class="calculator-btn items">C</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
                     <button class="calculator-btn" data-value="7">7</button>
                     <button class="calculator-btn" data-value="8">8</button>
                     <button class="calculator-btn" data-value="9">9</button>

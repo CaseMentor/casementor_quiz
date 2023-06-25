@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
-<body>
+<body class="body">
     <p id="count_down"></p>
     <br>
     <div id="row">
@@ -23,7 +23,7 @@
                         <div class="smenu">
                             <a href="#" class="target">Case 1</a>
                             <a href="#" class="target">Case 2</a>
-                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="btn_active">Case 3</a>
                             <a href="#" class="target">Case 4</a>
                             <a href="#" class="target">Case 5</a>
                             <a href="#" class="target">Case 6</a>
@@ -39,13 +39,15 @@
         <!--main screen column-->
         <div class="main_screen column">
             <br>
-            <h1>Researchers have analyzed the main source of food of Blue Monkeys in Maya Forest for different areas
-            </h1>
+            <div class="question_container"> Researchers have analyzed the main source of food of Blue Monkeys in Maya
+                Forest for different areas
+            </div>
+
             <br>
             <p>Average daily consumption</p>
             <img src="./img/cases_bar_chart.png" alt="cases_bar_chart">
             <div class="question_container">
-                Question
+                <div class="question_title">Question</div>
                 <p>Which is the fruit with the highest median and highest mean consumption?</p>
                 <label for="Median">Median</label>
                 <select id="Median" name="Median">

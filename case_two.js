@@ -1,94 +1,68 @@
 
 // end analysis btn
 function showConfirmBox() {
-    document.getElementById("overlay").hidden = false;
+  document.getElementById("overlay").hidden = false;
+}
+function closeConfirmBox() {
+  document.getElementById("overlay").hidden = true;
+}
+
+function isConfirm(answer) {
+  if (answer) {
+    alert("Answer is yes");
+  } else {
+    closeConfirmBox();
   }
-  function closeConfirmBox() {
-    document.getElementById("overlay").hidden = true;
-  }
-  
-  function isConfirm(answer) {
-    if (answer) {
-      alert("Answer is yes");
-    } else {
-      closeConfirmBox();
+}
+$(function () {
+  // Make elements with class 'draggable' draggable
+  $(".draggable, .sortable").draggable({
+    helper: function () {
+      return $(this).clone().css("z-index", 1100).appendTo('body');
+    },
+    revert: 'invalid',
+
+  });
+
+
+  // Make the 'Journal_container' a droppable for the draggable
+  $(".right_screen").droppable({
+    accept: ".draggable, .sortable",
+    tolerance: "pointer",
+    drop: function (event, ui) {
+      if (ui.draggable.hasClass('draggable')) {
+        var newElem = $(ui.helper).clone(false);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.removeClass('draggable');
+        newElem.addClass('sortable')
+        var title = ui.helper.data('title');
+        // Add a title to the new element
+        newElem.prepend("<div class='title' contenteditable='true'>" + title + "</div>");
+        // Add a horizontal line after the new element
+        newElem.appendTo(this);
+        newElem.append("<button class='remove'>X</button>");
+        // $("<hr>").appendTo(this);
+        $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+
+      }
+      else if (ui.draggable.hasClass('sortable')) {
+        var newElem = $(ui.draggable);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+        // newElem.appendTo(this);
+        newElem.removeClass('draggable');
+        newElem.appendTo(this);
+        $(this).sortable();
+      }
+      // Make the 'right_screen' container sortable
     }
-  }
-  // Get the draggable elements
-  const draggables = document.querySelectorAll('.draggable');
-  const inputField = document.getElementById('inputField');
-  const resultElement = document.getElementById('result');
-  
-  // Add drag start event listener to each draggable element
-  draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', (event) => {
-      event.dataTransfer.setData('text/plain', draggable.textContent);
-    });
+    // Make the 'right_screen' container sortable
+  }// log the dropped element 
+  );
+
+  $(document).on('click', '.remove', function () {
+    $(this).parent().remove();
+    $(this).remove();
   });
-  
-  // Add drag over event listener to the input field to allow dropping
-  inputField.addEventListener('dragover', (event) => {
-    event.preventDefault();
-  });
-  
-  // Add drop event listener to the input field to handle dropping
-  inputField.addEventListener('drop', (event) => {
-    event.preventDefault();
-    const value = event.dataTransfer.getData('text/plain');
-    inputField.value += value;
-  });
-  
-  // Get the calculator buttons
-  const calculatorButtons = document.querySelectorAll('.calculator-btn');
-  
-  // Add click event listener to each calculator button
-  calculatorButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const value = button.getAttribute('data-value');
-      if (value === '=') {
-        calculateResult();
-      } else {
-        inputField.value += value;
-      }
-    });
-  });
-  
-  const containers = document.querySelectorAll('.container')
-  
-  draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-      draggable.classList.add('dragging')
-    })
-  
-    draggable.addEventListener('dragend', () => {
-      draggable.classList.remove('dragging')
-    })
-  })
-  
-  containers.forEach(container => {
-    container.addEventListener('dragover', e => {
-      e.preventDefault()
-      const afterElement = getDragAfterElement(container, e.clientY)
-      const draggable = document.querySelector('.dragging')
-      if (afterElement == null) {
-        container.appendChild(draggable)
-      } else {
-        container.insertBefore(draggable, afterElement)
-      }
-    })
-  })
-  
-  function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
-  
-    return draggableElements.reduce((closest, child) => {
-      const box = child.getBoundingClientRect()
-      const offset = y - box.top - box.height / 2
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child }
-      } else {
-        return closest
-      }
-    }, { offset: Number.NEGATIVE_INFINITY }).element
-  }
-  
+
+  $(".sortable").sortable({})
+});

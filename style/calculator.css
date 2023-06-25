@@ -11,8 +11,21 @@
   --clr_of_input: #3b3838;
 }
 
-/*the whole page css*/
 * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--outer);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 26px;
+  color: var(--capiton);
+  font-weight: 320;
+
+}
+
+.body {
+  max-width: 1500px;
+  max-height: 640px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,12 +49,12 @@
 .main_screen {
   width: 60%;
   margin-left: 50px;
-  border-left: 10px solid var(--capiton);
-  border-top: 3px solid var(--capiton);
-  border-bottom: 3px solid var(--capiton);
-  border-right: 10px solid var(--capiton);
+  border-left: 15px solid rgb(226, 226, 255);
+  border-top: 3px solid rgb(226, 226, 255);
+  border-bottom: 3px solid rgb(226, 226, 255);
+  border-right: 15px solid rgb(226, 226, 255);
   height: 100vh;
-  background-color: var(--inner);
+  background-color: var(--inner) !important;
 }
 
 /*the main screen */
@@ -54,7 +67,6 @@
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: var(--inner);
-  height: 95vh;
 }
 
 /*main screen scrollbar*/
@@ -153,12 +165,14 @@
 
 /*the Research journal*/
 .right_screen {
-  border: 3px solid var(--capiton);
+  border: solid 3px rgb(226, 226, 255);
+  border-right: solid 10px rgb(226, 226, 255);
   height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: var(--inner) !important;
   padding: 20px 20px;
-  width: 25vw;
+  width: 25%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -190,7 +204,7 @@
   bottom: 0;
   left: 0;
   background: fixed;
-  z-index: 1001;
+  z-index: 2020;
 }
 
 .confirm-box {
@@ -305,8 +319,8 @@
 }
 
 .calculator-btn {
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   background-color: #afabab;
 }
 
@@ -326,7 +340,7 @@
   display: inline;
   margin-left: 50px;
   margin-bottom: 20px;
-  width: 400px;
+  width: 350px;
 }
 
 .input_box {
@@ -359,7 +373,7 @@ label {
   background-color: var(--clr_of_input);
   border: 1px solid var(--capiton);
   border-radius: 10px;
-  width: 70px;
+  width: 120px;
 }
 
 .option {
@@ -373,7 +387,7 @@ label {
 }
 
 .option img {
-  height: 170px;
+  height: 140px;
   /* adjust as needed */
 }
 
@@ -392,4 +406,20 @@ label {
   position: absolute;
   top: -2px;
   right: -20px;
+}
+
+/*the whole page css*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--inner);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 26px;
+  color: var(--capiton);
+}
+
+.report_answer {
+  width: 50px
 }

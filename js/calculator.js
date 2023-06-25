@@ -18,18 +18,30 @@ $(document).ready(function () {
 })
 
 
-
+$(function () {
+  $(".input_answer, .report_answer").droppable({
+    accept: ".draggable, .sortable",
+    drop: function (event, ui) {
+      let totalValue = ui.helper.text();
+      let dataTitle = ui.helper.attr('data-title');
+      let otherTitle = ui.helper.attr('title');
+      // get the value by replacing the data-title from totalValue
+      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
+      $(this).val($(this).val() + value);
+    }
+  });
+})
 
 $(function () {
   // Make the calculator's input field droppable
   $("#inputField").droppable({
-    accept: ".draggable , .sortable",
+    accept: ".draggable, .sortable",
     drop: function (event, ui) {
-      // const value = ui.helper.text();
       let totalValue = ui.helper.text();
       let dataTitle = ui.helper.attr('data-title');
+      let otherTitle = ui.helper.attr('title');
       // get the value by replacing the data-title from totalValue
-      let value = totalValue.replace(dataTitle, '').replace('X', '').replace('<hr>', '').trim();
+      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
       if (value === "AC") { // Clear the input field when 'AC' is dropped
         $(this).val('');
       } else if (value === "C") { // Remove the last character when 'C' is dropped
@@ -63,6 +75,7 @@ $(function () {
       return $(this).clone().css("z-index", 1100).appendTo('body');
     },
     revert: 'invalid',
+
   });
 
 
@@ -82,20 +95,17 @@ $(function () {
         // Add a horizontal line after the new element
         newElem.appendTo(this);
         newElem.append("<button class='remove'>X</button>");
-        var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
-        wrapper.appendTo(this);
         // $("<hr>").appendTo(this);
         $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
 
       }
       else if (ui.draggable.hasClass('sortable')) {
         var newElem = $(ui.draggable);
-        newElem.removeClass('ui-draggable ui-draggable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
-        newElem.next('hr').remove();
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
         // newElem.appendTo(this);
-        var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
-        wrapper.appendTo(this);
-        $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+        newElem.removeClass('draggable');
+        newElem.appendTo(this);
+        $(this).sortable();
       }
       // Make the 'right_screen' container sortable
     }
@@ -112,16 +122,6 @@ $(function () {
 });
 
 
-$(".report_input , .input_answer").droppable({
-  accept: ".draggable, .sortable",
-  drop: function (event, ui) {
-    let totalValue = ui.helper.text();
-    let dataTitle = ui.helper.attr('data-title');
-    let value = totalValue.replace(dataTitle, '').trim();
-    $(this).val($(this).val() + value);
-
-  }
-});
 
 
 

@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Cases | Case 7</title>
     <link rel="stylesheet" href="case_seven.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
-<body>
+<body class="body">
     <p id="count_down"></p>
     <br>
     <div id="row">
@@ -26,7 +30,7 @@
                             <a href="#" class="target">Case 4</a>
                             <a href="#" class="target">Case 5</a>
                             <a href="#" class="target">Case 6</a>
-                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="btn_active">Case 7</a>
                             <a href="#" class="target">Case 8</a>
                             <a href="#" class="target">Case 9</a>
                             <a href="#" class="target">Case 10</a>
@@ -92,11 +96,10 @@
                 <p>What is the probability that a day in August has heavy rain in Maya
                     Forest?
                 </p>
-                <br>
                 <form>
                     <label for="case_seven_answer">Answer</label>
                     <br>
-                    <input type="number" value="case_seven_answer" id="case_seven_answer" min="0">
+                    <input class="input_answer" type="number" value="case_seven_answer" id="case_seven_answer" min="0">
                 </form>
             </div>
             <div class="container_main_screen">
@@ -122,10 +125,10 @@
                     <hr id="sep_line">
                 </div>
                 <div class="buttons">
-                    <button class="calculator-btn items">AC</button>
+                    <button class="calculator-btn items" data-value="AC">AC</button>
                     <button class="calculator-btn items" data-value="(">(</button>
                     <button class="calculator-btn items" data-value=")">)</button>
-                    <button class="calculator-btn items">C</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
                     <button class="calculator-btn" data-value="7">7</button>
                     <button class="calculator-btn" data-value="8">8</button>
                     <button class="calculator-btn" data-value="9">9</button>
@@ -145,7 +148,7 @@
                 </div>
             </div>
         </div>
-        <script src="case_seven.js"></script>
+        <script src="case_one.js"></script>
 </body>
 
 </html>
