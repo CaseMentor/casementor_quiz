@@ -4,12 +4,49 @@ $(document).ready(function () {
         const journalData = JSON.parse(localStorage.getItem('journalData'));
         $('#Journal_container').html(journalData);
     }
-    if (localStorage.getItem('count_down')) {
-        const count_down = localStorage.getItem('count_down');
-        $('#count_down').html(count_down);
-    }
-});
 
+    $('.report_answer').each(function () {
+        const id = $(this).attr('id');
+        if (localStorage.getItem(id)) {
+            const value = localStorage.getItem(id);
+            $(this).val(value);
+        }
+    })
+});
+// Set the date we're counting down to
+var countDownDate;
+
+if (localStorage.getItem('countDownDate')) {
+    countDownDate = localStorage.getItem('countDownDate');
+} else {
+    countDownDate = new Date().getTime() + 35 * 60 * 1000;
+}
+
+// Update the count down every 1 second
+var x = setInterval(function () {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for hours, minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="count_down"
+    document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("count_down").innerHTML = "Time's Up";
+    } else {
+        // Store countdown date to localStorage
+        localStorage.setItem('countDownDate', countDownDate);
+    }
+}, 1000);
 
 $(function () {
     // Make elements with class 'draggable' draggable
@@ -136,6 +173,11 @@ function showConfirmBox() {
     const journalData = $('#Journal_container').html();
     localStorage.setItem('journalData', JSON.stringify(journalData));
     document.getElementById("overlay").hidden = false;
+    $('.report_input').each(function () {
+        const id = $(this).attr('id');
+        const value = $(this).val();
+        localStorage.setItem(id, value);
+    });
 }
 
 function closeConfirmBox() {
@@ -190,10 +232,10 @@ var myChart = new Chart(ctx, {
 });
 
 function updateChart() {
-    var value1 = document.getElementById('input1').value || 0;
-    var value2 = document.getElementById('input2').value || 0;
-    var value3 = document.getElementById('input3').value || 0;
-    var value4 = document.getElementById('input4').value || 0;
+    var value1 = document.getElementById('Maya_forest_target').value || 0;
+    var value2 = document.getElementById('Blue_lagoon_target').value || 0;
+    var value3 = document.getElementById('Maya_forest_actual').value || 0;
+    var value4 = document.getElementById('Blue_lagoon_actual').value || 0;
 
     myChart.data.datasets[0].data = [value1, value2];
     myChart.data.datasets[1].data = [value3, value4];
@@ -201,7 +243,7 @@ function updateChart() {
 }
 
 // Add input event listeners to all input fields
-document.getElementById('input1').addEventListener('input', updateChart);
-document.getElementById('input2').addEventListener('input', updateChart);
-document.getElementById('input3').addEventListener('input', updateChart);
-document.getElementById('input4').addEventListener('input', updateChart);
+document.getElementById('Maya_forest_target').addEventListener('input', updateChart);
+document.getElementById('Blue_lagoon_target').addEventListener('input', updateChart);
+document.getElementById('Maya_forest_actual').addEventListener('input', updateChart);
+document.getElementById('Blue_lagoon_actual').addEventListener('input', updateChart);

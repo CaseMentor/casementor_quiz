@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 4</title>
+    <link rel="stylesheet" href="./style/case_4.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="btn_active">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="main_screen column">
+            <div class="question_container">
+                <h1>The research team is planning to put new banana trees on the island after year 10. Below is a table
+                    showing
+                    the number of banana trees for the different areas.
+                </h1>
+                <br>
+                <table>
+                    <tr>
+                        <th> </th>
+                        <th>Y11</th>
+                        <th>Y12</th>
+                        <th>Y13</th>
+                        <th>Y14</th>
+                    </tr>
+                    <tr>
+                        <td>Chocolate Rock</td>
+                        <td>60</td>
+                        <td>63</td>
+                        <td>68</td>
+                        <td>71</td>
+                    </tr>
+                    <tr>
+                        <td>Maya Forest</td>
+                        <td>45</td>
+                        <td>49</td>
+                        <td>53</td>
+                        <td>59</td>
+                    </tr>
+                    <tr>
+                        <td>Blue Lagoon</td>
+                        <td>50</td>
+                        <td>55</td>
+                        <td>59</td>
+                        <td>65</td>
+                    </tr>
+                    <tr>
+                        <td>South Beach</td>
+                        <td>45</td>
+                        <td>49</td>
+                        <td>54</td>
+                        <td>60</td>
+                    </tr>
+                </table>
+                <div id="question_title">Question</div>
+                <p>For which year and which region there was the highest percentage increase in banana trees?</p>
+                <form action="">
+                    <label for="Year">Year</label>
+                    <select class="select_box" name="case_4_year" id="case_4_year">
+                        <option value="y11_y12">Y11-Y12</option>
+                        <option value="y12_y13">Y12-Y13</option>
+                        <option value="y13_y14">Y13-Y14</option>
+                    </select>
+                    <br>
+                    <label for="Region">Region</label>
+                    <select class="select_box" name="case_4_Region" id="case_4_Region">
+                        <option value="Chocolate_Rock">Chocolate Rock</option>
+                        <option value="Maya_Forest">Maya Forest</option>
+                        <option value="Blue_Lagoon">Blue Lagoon</option>
+                        <option value="South_Beach">South Beach</option>
+                    </select>
+                </form>
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        Do you want to move to the next question?
+                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_5.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="./js/calculator.js"></script>
+</body>
+
+</html>

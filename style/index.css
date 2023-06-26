@@ -34,7 +34,7 @@
 }
 
 .the_main_text {
-    background-color: var(--inner) !important;
+    background-color: var(--inner);
 }
 
 /* make the columns look aligned*/
@@ -290,7 +290,6 @@
 
 /*change the scroll bar*/
 #objective {
-    height: 50vh;
     margin-left: 50px;
 }
 
@@ -484,9 +483,6 @@
     margin-left: 50px;
 }
 
-.the_main_text {
-    width: 90%;
-}
 
 .contianer_drag {
     background-color: var(--inner);
@@ -504,6 +500,10 @@
     cursor: move;
     width: 100%;
 
+}
+
+.right_screen ui-sortable {
+    gap: 20px;
 }
 
 .right_screen .draggable {
@@ -558,7 +558,8 @@
 }
 
 #objective_line {
-    width: 90%;
+    display: inline;
+    position: relative;
 }
 
 .study_drag {
@@ -579,6 +580,10 @@
 
 .draggable .title {
     background-color: var(--inner);
+}
+
+.draggable .text {
+    color: var(--inner);
 }
 
 .remove {

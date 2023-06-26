@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 2</title>
+    <link rel="stylesheet" href="./style/case_2.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="btn_active">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="target">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <div class="question_container">
+                <p>The research team identified a few characteristics of the different monkey species in Maya Forest to
+                    predict with more accuracy their evolution</p>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Number of
+                            animals (Year
+                            10)</th>
+                        <th>Yearly grow rate</th>
+                        <th>Banana trees
+                            needed per
+                            monkey</th>
+                        <th>Number of
+                            monkeys in
+                            reproductive
+                            period</th>
+                    </tr>
+                    <tr>
+                        <td>Golden</td>
+                        <td class="draggable" draggable="true">30</td>
+                        <td class="draggable" draggable="true">5%</td>
+                        <td class="draggable" draggable="true">3</td>
+                        <td class="draggable" draggable="true">1</td>
+                    </tr>
+                    <tr>
+                        <td>Japanese</td>
+                        <td class="draggable" draggable="true">25</td>
+                        <td class="draggable" draggable="true">10%</td>
+                        <td class="draggable" draggable="true">5</td>
+                        <td class="draggable" draggable="true">1</td>
+                    </tr>
+                    <tr>
+                        <td>Blue</td>
+                        <td class="draggable" draggable="true">27</td>
+                        <td class="draggable" draggable="true">8%</td>
+                        <td class="draggable" draggable="true">6</td>
+                        <td class="draggable" draggable="true">2</td>
+                    </tr>
+                    <tr>
+                        <td>Capuchin</td>
+                        <td class="draggable" draggable="true">22</td>
+                        <td class="draggable" draggable="true">-3%</td>
+                        <td class="draggable" draggable="true">4</td>
+                        <td class="draggable" draggable="true">1</td>
+                    </tr>
+                </table>
+                <div id="the_question_title">Question <br></div>
+
+                <p id="the_question">Which information is relevant to identify whether the number of
+                    Japanese or Golden monkeys will be higher in Year 11? Please drop
+                    it in the research Journal on the right
+                </p>
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        Do you want to move to the next question?
+                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_3.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+            </div>
+        </div>
+    </div>
+    <div class="right_screen" id="case_two">
+        <div class="container"></div>
+    </div>
+    </div>
+    <script src="./js/case_2.js"></script>
+</body>
+
+</html>

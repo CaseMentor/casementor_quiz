@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Cases | Case 7</title>
+    <link rel="stylesheet" href="./style/case_7.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body class="body">
+    <p id="count_down"></p>
+    <br>
+    <div id="row">
+        <div class="left column">
+            <!--build the menu and the submenus-->
+            <div class="menu">
+                <ul>
+                    <li class="item" id="invest">
+                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <div class="smenu">
+                            <a href="#" class="target">Case 1</a>
+                            <a href="#" class="target">Case 2</a>
+                            <a href="#" class="target">Case 3</a>
+                            <a href="#" class="target">Case 4</a>
+                            <a href="#" class="target">Case 5</a>
+                            <a href="#" class="target">Case 6</a>
+                            <a href="#" class="btn_active">Case 7</a>
+                            <a href="#" class="target">Case 8</a>
+                            <a href="#" class="target">Case 9</a>
+                            <a href="#" class="target">Case 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main screen column-->
+        <div class="main_screen column">
+            <div class="question_container">
+                <h1>The researchers have performed research on the characteristics of the
+                    different parts of the island</h1>
+                <br>
+                <table>
+                    <tr>
+                        <th> </th>
+                        <th>Avg mm
+                            rain/month
+                            (August)</th>
+                        <th>Average
+                            probability of
+                            rain during the
+                            day (yearly)</th>
+                        <th># of days
+                            without rain
+                            (August)</th>
+                        <th>Probability of
+                            heavy rain
+                            (August)</th>
+                    </tr>
+                    <tr>
+                        <td>Chocolate Rock</td>
+                        <td class="draggable" draggable="true">100</td>
+                        <td class="draggable" draggable="true">10%</td>
+                        <td class="draggable" draggable="true">26</td>
+                        <td class="draggable" draggable="true">20%</td>
+                    </tr>
+                    <tr>
+                        <td>Maya Forest</td>
+                        <td class="draggable" draggable="true">150</td>
+                        <td class="draggable" draggable="true">15%</td>
+                        <td class="draggable" draggable="true">22</td>
+                        <td class="draggable" draggable="true">35%</td>
+                    </tr>
+                    <tr>
+                        <td>Blue Lagoon</td>
+                        <td class="draggable" draggable="true">120</td>
+                        <td class="draggable" draggable="true">20%</td>
+                        <td class="draggable" draggable="true">20</td>
+                        <td class="draggable" draggable="true">10</td>
+                    </tr>
+                    <tr>
+                        <td>South Beach</td>
+                        <td class="draggable" draggable="true">90</td>
+                        <td class="draggable" draggable="true">5%</td>
+                        <td class="draggable" draggable="true">25</td>
+                        <td class="draggable" draggable="true">25%</td>
+                    </tr>
+                </table>
+                <br>
+                <div id="question_title">Question</div>
+                <p>What is the probability that a day in August has heavy rain in Maya
+                    Forest?
+                </p>
+                <form>
+                    <label for="case_seven_answer">Answer</label>
+                    <br>
+                    <input class="input_answer" type="number" value="case_seven_answer" id="case_seven_answer" min="0">
+                </form>
+            </div>
+            <div class="container_main_screen">
+                <div class="overlay" id="overlay" hidden>
+                    <div class="confirm-box">
+                        Do you want to move to the next question?
+                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                        <br>
+                        <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>
+                        <button onclick="location.href='case_8.html';" class="confirm_btn">Move forward</button>
+                    </div>
+                </div>
+                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+            </div>
+        </div>
+    </div>
+    <div class="right_screen column">
+        <div class="container">
+            <div class="calculator">
+                <div class="display">
+                    <input type="text" id="inputField">
+                    <div id="result" class="draggable" draggable="true"></div>
+                    <hr id="sep_line">
+                </div>
+                <div class="buttons">
+                    <button class="calculator-btn items" data-value="AC">AC</button>
+                    <button class="calculator-btn items" data-value="(">(</button>
+                    <button class="calculator-btn items" data-value=")">)</button>
+                    <button class="calculator-btn items" data-value="C">C</button>
+                    <button class="calculator-btn" data-value="7">7</button>
+                    <button class="calculator-btn" data-value="8">8</button>
+                    <button class="calculator-btn" data-value="9">9</button>
+                    <button class="calculator-btn items" data-value="/">/</button>
+                    <button class="calculator-btn" data-value="4">4</button>
+                    <button class="calculator-btn" data-value="5">5</button>
+                    <button class="calculator-btn" data-value="6">6</button>
+                    <button class="calculator-btn items" data-value="*">*</button>
+                    <button class="calculator-btn" data-value="1">1</button>
+                    <button class="calculator-btn" data-value="2">2</button>
+                    <button class="calculator-btn" data-value="3">3</button>
+                    <button class="calculator-btn items" data-value="-">-</button>
+                    <button class="calculator-btn" data-value="0">0</button>
+                    <button class="calculator-btn" data-value=".">.</button>
+                    <button class="calculator-btn" data-value="=">=</button>
+                    <button class="calculator-btn items" data-value="+">+</button>
+                </div>
+            </div>
+        </div>
+        <script src="./js/case_1.js"></script>
+</body>
+
+</html>

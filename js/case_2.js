@@ -1,11 +1,4 @@
-$(document).ready(function () {
-  // Check if there is any data in the local storage.
-  if (localStorage.getItem('journalData')) {
-    const journalData = JSON.parse(localStorage.getItem('journalData'));
-    $('#journal_container').html(journalData);
-  }
-});
-// Set the date we're counting down to
+
 var countDownDate;
 
 if (localStorage.getItem('countDownDate')) {
@@ -40,74 +33,10 @@ var x = setInterval(function () {
   }
 }, 1000);
 
-$(function () {
-  // Make elements with class 'draggable' draggable
-  $(".draggable, .sortable").draggable({
-    helper: function () {
-      return $(this).clone().css("z-index", 10).appendTo('body');
-    },
-    revert: 'invalid',
-    start: function () {
-      // Change the appearance of the original element as soon as the drag starts
-      $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
-
-    }
-  });
-
-
-  // Make the 'Journal_container' a droppable for the draggable
-  $(".right_screen").droppable({
-    accept: ".draggable",
-    tolerance: "pointer",
-    drop: function (event, ui) {
-      if (ui.draggable.hasClass('draggable')) {
-        var newElem = $(ui.helper).clone(false);
-        newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
-        newElem.removeClass('draggable');
-        var title = ui.helper.data('title');
-        newElem.addClass('sortable')
-        // Add a title to the new element
-        newElem.prepend("<div class='title' contenteditable='true'>" + title + "</div>");
-        // Add a horizontal line after the new element
-        newElem.append("<button class='remove'>X</button>");
-        newElem.appendTo(this);
-        // $("<hr>").appendTo(this);
-        $(this).sortable().removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
-      }
-      else if (ui.draggable.hasClass('sortable')) {
-        var newElem = $(ui.draggable);
-        newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
-        newElem.next('hr').remove();
-        // newElem.appendTo(this);
-        newElem.appendTo(this);
-      }
-      // Make the 'right_screen' container sortable
-    }
-    // Make the 'right_screen' container sortable
-  }// log the dropped element 
-  );
-
-  $(document).on('click', '.remove', function () {
-    $(this).parent().next('hr').remove();
-    $(this).closest('div').remove();
-  });
-
-  //   $(".sortable").sortable({})
-});
-
-
-
-
-
-
-
-$("#sort1,#sort2").disableSelection();
-//  Complete Investigation function
+// end analysis btn
 function showConfirmBox() {
-  const journalData = $('#journal_container').html();
-  localStorage.setItem('journalData', JSON.stringify(journalData));
-  const count_down = $('#count_down').html();
-  localStorage.setItem('count_down', count_down);
+  const journalData = $('#case_two').html();
+  localStorage.setItem('case_2_answer', JSON.stringify(journalData));
   document.getElementById("overlay").hidden = false;
 }
 function closeConfirmBox() {
@@ -118,19 +47,58 @@ function isConfirm(answer) {
   if (answer) {
     alert("Answer is yes");
   } else {
-    closeConfirmBox;
+    closeConfirmBox();
   }
-  closeConfirmBox();
 }
+$(function () {
+  // Make elements with class 'draggable' draggable
+  $(".draggable, .sortable").draggable({
+    helper: function () {
+      return $(this).clone().css("z-index", 1100).appendTo('body');
+    },
+    revert: 'invalid',
+
+  });
 
 
-// This assumes you have a button with the id "nextPageButton"
-$("#nextPageButton").click(function () {
-  // This stores the journal contents before going to the next page
-  const journalData = $('#journal_container').html();
-  localStorage.setItem('journalData', JSON.stringify(journalData));
+  // Make the 'Journal_container' a droppable for the draggable
+  $(".right_screen").droppable({
+    accept: ".draggable, .sortable",
+    tolerance: "pointer",
+    drop: function (event, ui) {
+      if (ui.draggable.hasClass('draggable')) {
+        var newElem = $(ui.helper).clone(false);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.removeClass('draggable');
+        newElem.addClass('sortable')
+        var title = ui.helper.data('title');
+        // Add a title to the new element
+        newElem.prepend("<div class='title' contenteditable='true'>" + title + "</div>");
+        // Add a horizontal line after the new element
+        newElem.appendTo(this);
+        newElem.append("<button class='remove'>X</button>");
+        // $("<hr>").appendTo(this);
+        $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
 
-  // This is where you'd put your code to navigate to the next page
-  window.location.href = "calculator_question_1.html";
+      }
+      else if (ui.draggable.hasClass('sortable')) {
+        var newElem = $(ui.draggable);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+        // newElem.appendTo(this);
+        newElem.removeClass('draggable');
+        newElem.appendTo(this);
+        $(this).sortable();
+      }
+      // Make the 'right_screen' container sortable
+    }
+    // Make the 'right_screen' container sortable
+  }// log the dropped element 
+  );
+
+  $(document).on('click', '.remove', function () {
+    $(this).parent().remove();
+    $(this).remove();
+  });
+
+  $(".sortable").sortable({})
 });
-
