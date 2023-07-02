@@ -23,7 +23,7 @@
             <div class="menu">
                 <ul>
                     <li class="item" id="invest">
-                        <a href='index.html' class="btn">Investigation</a>
+                        <a onclick="SaveToLocalStorage()" href='index.html' class="btn">Investigation</a>
                         <div class="smenu">
                         </div>
                     </li>
@@ -56,9 +56,7 @@
                         Question 2</button>
                 </div>
             </div>
-            <button class="end_btn" onclick="showConfirmBox()">Next Question</button>
         </div>
-
         <div class="main_screen column">
             <div class="container_main_screen">
                 <div class="question_text">
@@ -106,9 +104,14 @@
                         <button class="calculator-btn" data-value=".">.</button>
                         <button class="calculator-btn" data-value="=">=</button>
                         <button class="calculator-btn items" data-value="+">+</button>
+
                     </div>
+
                 </div>
+
             </div>
+            <div><button class="end_btn" onclick="showConfirmBox()">Next Question</button></div>
+
         </div>
         <div class="right_screen" id="Journal_container">
             <div class="journal_container">

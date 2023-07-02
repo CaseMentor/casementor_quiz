@@ -13,7 +13,7 @@
     <title>Analysis | Question 2</title>
 </head>
 
-<body>
+<body class="body">
     <p id="count_down"></p>
     <br>
     <div id="row">
@@ -22,14 +22,14 @@
             <div class="menu">
                 <ul>
                     <li class="item" id="invest">
-                        <a href='index.html' class="btn">Investigation</a>
+                        <a onclick="SaveToLocalStorage()" href='index.html' class="btn">Investigation</a>
                         <div class="smenu">
                         </div>
                     </li>
                     <li class="item" id="analysis">
                         <a href="#analysis" class="btn_active">Analysis</a>
                         <div class="smenu">
-                            <a href='calculator_question_1.html#analysis'>Question 1</a>
+                            <a href='#analysis'>Question 1</a>
                             <a href='calculator_question_2.html#analysis' class="btn_active">Question 2</a>
                             <a href='calculator_question_3.html#analysis'>Question 3</a>
                             <a href='calculator_review.html#analysis'>Review</a>
@@ -55,25 +55,26 @@
                         Question 3</button>
                 </div>
             </div>
-            <button class="end_btn" onclick="showConfirmBox()">Next Question</button>
             <div class="main_screen column">
                 <div class="container_main_screen">
                     <div class="question_text">
-                        <h1>Question 2</h1>
+                        Question 2
                         <br>
-                        <p>How many additional Longtail Monkeys
-                            would be needed to reach the target after
-                            the trees are moved? Add zero if the target
-                            number is already met.
-                        </p>
+                        How many additional Longtail Monkeys
+                        would be needed to reach the target after
+                        the trees are moved? Add zero if the target
+                        number is already met.
                         <br>
-                        <label for="first_answer_forest">Maya Forest</label>
-                        <input type="number" class="input_answer" id="second_answer_forest" name="first_answer_forest"
-                            min="0">
-                        <br>
-                        <label for="first_answer_lagoon">Blue Lagoon</label>
-                        <input type="number" class="input_answer" name="second_answer_lagoon" id="second_answer_lagoon"
-                            min="0">
+                        <div class="input_box">
+                            <label for="first_answer_forest">Maya Forest</label>
+                            <input type="number" class="input_answer" id="second_answer_forest"
+                                name="first_answer_forest" min="0">
+                            <br>
+                            <label for="first_answer_lagoon">Blue Lagoon</label>
+                            <input type="number" class="input_answer" name="second_answer_lagoon"
+                                id="second_answer_lagoon" min="0">
+                        </div>
+
                     </div>
                     <div class="calculator">
                         <div class="display">
@@ -105,7 +106,10 @@
                         </div>
                     </div>
                 </div>
+                <div><button class="end_btn" onclick="showConfirmBox()">Next Question</button>
+                </div>
             </div>
+
             <div class="right_screen">
                 <div class="journal_container" id="Journal_container">
                     <h2>Research Journal</h2>

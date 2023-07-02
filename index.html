@@ -31,7 +31,7 @@
                         </div>
                     </li>
                     <li class="item" id="analysis">
-                        <a href="#analysis" class="btn">Analysis</a>
+                        <a onclick="SaveToLocalStorage()" href="calculator_question_1.html" class="btn">Analysis</a>
                     </li>
                     <li class="item" id="report">
                         <a href="#report" class="btn">Report</a>
@@ -44,7 +44,7 @@
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
                     <div class="confirm-box">
-                        <h2 id="forward">Do you want to move forward?</h2>
+                        <h2 id="forward">Do you want to move forward?</h2><br>
                         <p id="inside_confirm_p">If you have collected all the relevant information
                             you can now move to the analysis phase.</p>
                         <button onclick="isConfirm(false)" class="confirm_btn">Back to Investigation</button>
@@ -53,9 +53,10 @@
                             Analysis</button>
                     </div>
                 </div>
-                <button class="end_btn" onclick="showConfirmBox()">Complete Investigation</button>
+
                 <div id="objective" class=container>
-                    <div id="research_info_title" class=container>Research Information</div>
+
+                    <div id="research_info_title" class=container>Research Information</div><br>
                     <div class="the_main_text">You have been hired as a researcher in the Whitesand archipelago, a
                         protected area where multiple rare species live. As a researcher, we
                         will provide data on the endangered Longtail Monkeys of the island.</div>
@@ -70,16 +71,16 @@
                     <br> Exhibit 1: Banana and Mango tree reserves – End of Year 8
                     <div class="island">
                         <img src="./img/the_island.png" alt="the island">
-                        <div class="draggable" id="exhibit_draggable1" data-title="Banana's at Chocolate rock">
+                        <div class="draggable" id="exhibit_draggable1" data-title="Bananas at Chocolate rock">
                             55
                         </div class=container>
-                        <div class="draggable" id="exhibit_draggable2" data-title="Mango's at Chocolate rock">33</div>
-                        <div class="draggable" id="exhibit_draggable3" data-title="Banana's at Blue lagoon">60</div>
-                        <div class="draggable" id="exhibit_draggable4" data-title="Mango's at Blue lagoon">44</div>
-                        <div class="draggable" id="exhibit_draggable5" data-title="Banana's at Maya forest">40</div>
-                        <div class="draggable" id="exhibit_draggable6" data-title="Mango's at Maya forest">23</div>
-                        <div class="draggable" id="exhibit_draggable7" data-title="Banana's at South beach">45</div>
-                        <div class="draggable" id="exhibit_draggable8" data-title="Mango's at South beach">34</div>
+                        <div class="draggable" id="exhibit_draggable2" data-title="Mangos at Chocolate rock">33</div>
+                        <div class="draggable" id="exhibit_draggable3" data-title="Bananas at Blue lagoon">60</div>
+                        <div class="draggable" id="exhibit_draggable4" data-title="Mangos at Blue lagoon">44</div>
+                        <div class="draggable" id="exhibit_draggable5" data-title="Bananas at Maya forest">40</div>
+                        <div class="draggable" id="exhibit_draggable6" data-title="Mangos at Maya forest">23</div>
+                        <div class="draggable" id="exhibit_draggable7" data-title="Bananas at South beach">45</div>
+                        <div class="draggable" id="exhibit_draggable8" data-title="Mangos at South beach">34</div>
                     </div>
                 </div>
                 <div id="second_exhibit" class="container">
@@ -113,7 +114,7 @@
                 </div>
                 <div id="study" class="container">
                     WHITESAND ARCHIPELAGO FLORA AND FAUNA
-                    <div class="container"> <br>
+                    <div class="container"><br>
                         The current protection study at Whitesand includes two main types of
                         animals: monkeys and hyenas. The ratio between the two types of
                         animals has always been
@@ -173,6 +174,11 @@
                             trees
                             in South Beach as reserves for the
                             future season</div>
+                        <div>
+                            <button class="end_btn" onclick="showConfirmBox()">Complete Investigation</button>
+                        </div>
+                        <div class="container"> <br><br><br></div>
+
                     </div>
                 </div>
             </div>

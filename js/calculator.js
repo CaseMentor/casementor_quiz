@@ -51,6 +51,11 @@ $(document).ready(function () {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    // Pad the minutes and seconds with leading zeros if they are less than 10.
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+
+
     // Display the result in the element with id="count_down"
     document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
 
@@ -72,8 +77,8 @@ $(document).ready(function () {
         let dataTitle = ui.helper.attr('data-title');
         let otherTitle = ui.helper.attr('title');
         // get the value by replacing the data-title from totalValue
-        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
-        $(this).val($(this).val() + value);
+        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.]/g, '').trim();
+        $(this).val(value);
       }
     });
   })
@@ -87,7 +92,7 @@ $(document).ready(function () {
         let dataTitle = ui.helper.attr('data-title');
         let otherTitle = ui.helper.attr('title');
         // get the value by replacing the data-title from totalValue
-        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
+        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.]/g, '').trim();
         if (value === "AC") { // Clear the input field when 'AC' is dropped
           $(this).val('');
         } else if (value === "C") { // Remove the last character when 'C' is dropped
@@ -117,6 +122,7 @@ $(document).ready(function () {
   $(function () {
     // Make elements with class 'draggable' draggable
     $(".draggable, .sortable").draggable({
+      cancel: '.title',
       helper: function () {
         return $(this).clone().css("z-index", 1100).appendTo('body');
       },
@@ -135,14 +141,13 @@ $(document).ready(function () {
           newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
           newElem.removeClass('draggable');
           newElem.addClass('sortable')
-          var title = ui.helper.data('title');
           // Add a title to the new element
           newElem.prepend("<div class='title' contenteditable='true'>Calculator result</div>");
           // Add a horizontal line after the new element
-          newElem.appendTo(this);
           newElem.append("<button class='remove'>X</button>");
+          newElem.appendTo(this);
           // $("<hr>").appendTo(this);
-          $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
+          $(this).sortable({ cancel: '.title' }).removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
 
         }
         else if (ui.draggable.hasClass('sortable')) {
@@ -172,8 +177,25 @@ $(document).ready(function () {
 
 
 
-  $('.calculator-btn').click(function () {
-    const value = $(this).data('value');
+  $(document).ready(function () {
+    $('.calculator-btn').click(function () {
+      const value = $(this).data('value');
+      performCalculation(value);
+    });
+
+    $(document).on('keydown', function (e) {
+      if (e.keyCode === 13) {  // 'Enter' key code
+        performCalculation("=");
+      }
+    });
+
+    $(document).on('click', '.remove', function () {
+      $(this).parent().next('hr').remove();
+      $(this).closest('div').remove();
+    });
+  })
+
+  function performCalculation(value) {
     if (value === "AC") { // Clear the input field when 'AC' is clicked
       $('#inputField').val('');
     } else if (value === "C") { // Remove the last character when 'C' is clicked
@@ -194,7 +216,7 @@ $(document).ready(function () {
     } else {
       $('#inputField').val($('#inputField').val() + value);
     }
-  });
+  }
   $(document).on('click', '.remove', function () {
     $(this).parent().next('hr').remove();
     $(this).closest('div').remove();
@@ -237,6 +259,41 @@ function showConfirmBox() {
   document.getElementById("overlay").hidden = false;
 
 }
+function SaveToLocalStorage() {
+  const journalData = $('#Journal_container').html();
+  localStorage.setItem('journalData', JSON.stringify(journalData));
+
+  $('.input_answer').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.report_answer').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.select_box').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.checkbox').each(function () {
+    const id = $(this).attr('id');
+    if ($(this).is(':checkbox')) {
+      // If it's a checkbox and it's not checked, we don't save it
+      if (!$(this).prop('checked')) {
+        return;
+      }
+    }
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+
+
+
+}
+
 
 function closeConfirmBox() {
   document.getElementById("overlay").hidden = true;

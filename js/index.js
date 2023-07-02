@@ -27,6 +27,10 @@ var x = setInterval(function () {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+  // Pad the minutes and seconds with leading zeros if they are less than 10.
+  minutes = minutes.toString().padStart(2, '0');
+  seconds = seconds.toString().padStart(2, '0');
+
   // Display the result in the element with id="count_down"
   document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
 
@@ -43,16 +47,19 @@ var x = setInterval(function () {
 $(function () {
   // Make elements with class 'draggable' draggable
   $(".draggable, .sortable").draggable({
+    cancel: ".title",
     helper: function () {
       return $(this).clone().css("z-index", 10).appendTo('body');
     },
     revert: 'invalid',
     start: function () {
+
       // Change the appearance of the original element as soon as the drag starts
       $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
 
     }
-  });
+  })
+
 
 
   // Make the 'Journal_container' a droppable for the draggable
@@ -72,7 +79,7 @@ $(function () {
         newElem.append("<button class='remove'>X</button>");
         newElem.appendTo(this);
         // $("<hr>").appendTo(this);
-        $(this).sortable().removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
+        $(this).sortable({ cancel: '.title' }).removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
       }
       else if (ui.draggable.hasClass('sortable')) {
         var newElem = $(ui.draggable);
@@ -134,3 +141,37 @@ $("#nextPageButton").click(function () {
   window.location.href = "calculator_question_1.html";
 });
 
+function SaveToLocalStorage() {
+  const journalData = $('#journal_container').html();
+  localStorage.setItem('journalData', JSON.stringify(journalData));
+
+  $('.input_answer').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.report_answer').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.select_box').each(function () {
+    const id = $(this).attr('id');
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+  $('.checkbox').each(function () {
+    const id = $(this).attr('id');
+    if ($(this).is(':checkbox')) {
+      // If it's a checkbox and it's not checked, we don't save it
+      if (!$(this).prop('checked')) {
+        return;
+      }
+    }
+    const value = $(this).val();
+    localStorage.setItem(id, value);
+  });
+
+
+
+}

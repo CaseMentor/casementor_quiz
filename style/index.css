@@ -91,7 +91,7 @@
 
 /*build the menu style*/
 .menu {
-    width: 150px;
+    width: 170px;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -232,7 +232,7 @@
     border: 1px solid var(--capiton);
     border-radius: 10px;
     position: absolute;
-    width: 50%;
+    width: 600px;
     height: fit-content;
     top: 25%;
     left: 25%;
@@ -242,20 +242,20 @@
     z-index: 1001;
 }
 
-.end_btn {
+.main_screen .end_btn {
     font-size: 20px;
     padding: 5px 12px;
     background-color: var(--capiton);
     color: var(--just_black);
     position: absolute;
-    margin-left: 42%;
-    font-weight: 500;
     float: right;
+    font-weight: 500;
+    right: 40%;
     border-radius: 10px;
     border-color: rgb(179, 187, 255);
     border-width: 3px;
     cursor: pointer;
-    bottom: 0%;
+    bottom: 0;
     background-color: #d6dce5;
     z-index: 1000;
     height: fit-content;
@@ -267,7 +267,8 @@
 }
 
 #forward {
-    background: var(--outer)
+    background: var(--outer);
+    font-weight: 500;
 }
 
 .confirm_btn {
