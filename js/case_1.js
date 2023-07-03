@@ -1,8 +1,11 @@
 $(document).ready(function () {
   // Check if there is any data in the local storage.
-  if (localStorage.getItem('journalData')) {
-    const journalData = JSON.parse(localStorage.getItem('journalData'));
-    $('#Journal_container').html(journalData);
+  var journal = document.getElementById("Journal_container")
+  if (journal) {
+    if (localStorage.getItem('journalData')) {
+      const journalData = JSON.parse(localStorage.getItem('journalData'));
+      $('#Journal_container').html(journalData);
+    }
   }
 
   $('.input_answer').each(function () {
