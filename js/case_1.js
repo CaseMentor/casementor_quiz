@@ -12,41 +12,45 @@ $(document).ready(function () {
       $(this).val(value);
     }
   });
-})
-var countDownDate;
 
-if (localStorage.getItem('countDownDate')) {
-  countDownDate = localStorage.getItem('countDownDate');
-} else {
-  countDownDate = new Date().getTime() + 35 * 60 * 1000;
-}
 
-// Update the count down every 1 second
-var x = setInterval(function () {
+  var countDownDate;
 
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for hours, minutes and seconds
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="count_down"
-  document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("count_down").innerHTML = "Time's Up";
+  if (localStorage.getItem('countDownDate')) {
+    countDownDate = localStorage.getItem('countDownDate');
   } else {
-    // Store countdown date to localStorage
-    localStorage.setItem('countDownDate', countDownDate);
+    countDownDate = new Date().getTime() + 35 * 60 * 1000;
   }
-}, 1000);
 
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for hours, minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Pad the minutes and seconds with leading zeros if they are less than 10.
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+    // Display the result in the element with id="count_down"
+    document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("count_down").innerHTML = "Time's Up";
+    } else {
+      // Store countdown date to localStorage
+      localStorage.setItem('countDownDate', countDownDate);
+    }
+  }, 1000);
+})
 
 // end analysis btn
 function showConfirmBox() {
@@ -74,8 +78,25 @@ function isConfirm(answer) {
   }
 }
 
-$('.calculator-btn').click(function () {
-  const value = $(this).data('value');
+$(document).ready(function () {
+  $('.calculator-btn').click(function () {
+    const value = $(this).data('value');
+    performCalculation(value);
+  });
+
+  $(document).on('keydown', function (e) {
+    if (e.keyCode === 13) {  // 'Enter' key code
+      performCalculation("=");
+    }
+  });
+
+  $(document).on('click', '.remove', function () {
+    $(this).parent().next('hr').remove();
+    $(this).closest('div').remove();
+  });
+})
+
+function performCalculation(value) {
   if (value === "AC") { // Clear the input field when 'AC' is clicked
     $('#inputField').val('');
   } else if (value === "C") { // Remove the last character when 'C' is clicked
@@ -96,7 +117,12 @@ $('.calculator-btn').click(function () {
   } else {
     $('#inputField').val($('#inputField').val() + value);
   }
+}
+$(document).on('click', '.remove', function () {
+  $(this).parent().next('hr').remove();
+  $(this).closest('div').remove();
 });
+
 $(function () {
   $(".input_answer, .report_answer").droppable({
     accept: ".draggable, .sortable",
@@ -105,7 +131,7 @@ $(function () {
       let dataTitle = ui.helper.attr('data-title');
       let otherTitle = ui.helper.attr('title');
       // get the value by replacing the data-title from totalValue
-      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
+      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.]/g, '').trim();
       $(this).val($(this).val() + value);
     }
   });

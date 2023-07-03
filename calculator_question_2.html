@@ -55,69 +55,70 @@
                         Question 3</button>
                 </div>
             </div>
-            <div class="main_screen column">
-                <div class="container_main_screen">
-                    <div class="question_text">
-                        Question 2
+        </div>
+        <div class="main_screen column">
+            <div class="container_main_screen">
+                <div class="question_text">
+                    Question 2
+                    <br>
+                    How many additional Longtail Monkeys
+                    would be needed to reach the target after
+                    the trees are moved? Add zero if the target
+                    number is already met.
+                    <br>
+                    <div class="input_box">
+                        <label for="first_answer_forest">Maya Forest</label>
+                        <input type="number" class="input_answer" id="2.Question 2 Maya Forest"
+                            name="first_answer_forest" min="0">
                         <br>
-                        How many additional Longtail Monkeys
-                        would be needed to reach the target after
-                        the trees are moved? Add zero if the target
-                        number is already met.
-                        <br>
-                        <div class="input_box">
-                            <label for="first_answer_forest">Maya Forest</label>
-                            <input type="number" class="input_answer" id="second_answer_forest"
-                                name="first_answer_forest" min="0">
-                            <br>
-                            <label for="first_answer_lagoon">Blue Lagoon</label>
-                            <input type="number" class="input_answer" name="second_answer_lagoon"
-                                id="second_answer_lagoon" min="0">
-                        </div>
+                        <label for="first_answer_lagoon">Blue Lagoon</label>
+                        <input type="number" class="input_answer" name="first_answer_lagoon"
+                            id="2.Question 2 Blue Lagoon" min="0">
+                    </div>
 
-                    </div>
-                    <div class="calculator">
-                        <div class="display">
-                            <input type="text" id="inputField">
-                            <hr id="sep_line">
-                            <div id="result" class="draggable" draggable="true">0</div>
-                        </div>
-                        <div class="buttons">
-                            <button class="calculator-btn items">AC</button>
-                            <button class="calculator-btn items" data-value="(">(</button>
-                            <button class="calculator-btn items" data-value=")">)</button>
-                            <button class="calculator-btn items">C</button>
-                            <button class="calculator-btn" data-value="7">7</button>
-                            <button class="calculator-btn" data-value="8">8</button>
-                            <button class="calculator-btn" data-value="9">9</button>
-                            <button class="calculator-btn items" data-value="/">/</button>
-                            <button class="calculator-btn" data-value="4">4</button>
-                            <button class="calculator-btn" data-value="5">5</button>
-                            <button class="calculator-btn" data-value="6">6</button>
-                            <button class="calculator-btn items" data-value="*">*</button>
-                            <button class="calculator-btn" data-value="1">1</button>
-                            <button class="calculator-btn" data-value="2">2</button>
-                            <button class="calculator-btn" data-value="3">3</button>
-                            <button class="calculator-btn items" data-value="-">-</button>
-                            <button class="calculator-btn" data-value="0">0</button>
-                            <button class="calculator-btn" data-value=".">.</button>
-                            <button class="calculator-btn" data-value="=">=</button>
-                            <button class="calculator-btn items" data-value="+">+</button>
-                        </div>
-                    </div>
                 </div>
-                <div><button class="end_btn" onclick="showConfirmBox()">Next Question</button>
+                <div class="calculator">
+                    <div class="display">
+                        <input type="text" id="inputField">
+                        <hr id="sep_line">
+                        <div id="result" class="draggable" draggable="true">0</div>
+                    </div>
+                    <div class="buttons">
+                        <button class="calculator-btn items">AC</button>
+                        <button class="calculator-btn items" data-value="(">(</button>
+                        <button class="calculator-btn items" data-value=")">)</button>
+                        <button class="calculator-btn items">C</button>
+                        <button class="calculator-btn" data-value="7">7</button>
+                        <button class="calculator-btn" data-value="8">8</button>
+                        <button class="calculator-btn" data-value="9">9</button>
+                        <button class="calculator-btn items" data-value="/">/</button>
+                        <button class="calculator-btn" data-value="4">4</button>
+                        <button class="calculator-btn" data-value="5">5</button>
+                        <button class="calculator-btn" data-value="6">6</button>
+                        <button class="calculator-btn items" data-value="*">*</button>
+                        <button class="calculator-btn" data-value="1">1</button>
+                        <button class="calculator-btn" data-value="2">2</button>
+                        <button class="calculator-btn" data-value="3">3</button>
+                        <button class="calculator-btn items" data-value="-">-</button>
+                        <button class="calculator-btn" data-value="0">0</button>
+                        <button class="calculator-btn" data-value=".">.</button>
+                        <button class="calculator-btn" data-value="=">=</button>
+                        <button class="calculator-btn items" data-value="+">+</button>
+                    </div>
                 </div>
             </div>
-
-            <div class="right_screen">
-                <div class="journal_container" id="Journal_container">
-                    <h2>Research Journal</h2>
-                    <hr>
-                </div>
+            <div><button class="end_btn" onclick="showConfirmBox()">Next Question</button>
             </div>
         </div>
-        <script src="./js/calculator.js"></script>
+
+        <div class="right_screen">
+            <div class="journal_container" id="Journal_container">
+                <h2>Research Journal</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="./js/calculator.js"></script>
 </body>
 
 </html>

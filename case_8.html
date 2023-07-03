@@ -9,16 +9,15 @@
     <link rel="stylesheet" href="./style/case_8.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-</head>
-
 </head>
 
 <body class="body">
     <p id="count_down"></p>
     <br>
     <div id="row">
+
         <div class="left column">
             <!--build the menu and the submenus-->
             <div class="menu">
@@ -53,23 +52,25 @@
                     options.</div>
                 <br>
                 <form>
-                    <input class="checkbox" type="checkbox" name="case_8_one" id="case_8_one" value="A lower number of crocodiles is correlated with an above-average number of frogs
+                    <input class="checkbox" type="checkbox" name="case_8_one" id="Case 8 a" value="A lower number of crocodiles is correlated with an above-average number of frogs
                     the following year">
                     <label for="one">A lower number of crocodiles is correlated with an above-average number of frogs
                         the following year</label>
                     <br>
-                    <input class="checkbox" type="checkbox" name="case_8_two" id="case_8_two"
+                    <input class="checkbox" type="checkbox" name="case_8_two" id="Case 8 b"
                         value="Each crocodile eats exactly 5 frogs">
                     <label for="two">Each crocodile eats exactly 5 frogs</label>
                     <br>
-                    <input class="checkbox" type="checkbox" name="case_8_three" id="case_8_three"
+                    <input class="checkbox" type="checkbox" name="case_8_three" id="Case 8 c"
                         value="There is no correlation between Phytons’ and Crocodiles’ numbers">
                     <label for="three">There is no correlation between Phytons’ and Crocodiles’ numbers</label>
                     <br>
-                    <input class="checkbox" type="checkbox" name="case_8_four" id="case_8_four"
+                    <input class="checkbox" type="checkbox" name="case_8_four" id="Case 8 d"
                         value="Phytons eat both crocodiles and frogs">
                     <label for="four">Phytons eat both crocodiles and frogs</label>
                 </form>
+                <div> <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+                </div>
             </div>
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
@@ -81,7 +82,6 @@
                         <button onclick="location.href='case_9.html';" class="confirm_btn">Move forward</button>
                     </div>
                 </div>
-                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
             </div>
         </div>
     </div>

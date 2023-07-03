@@ -13,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
-<body class=".body">
+<body class="body">
     <p id="count_down"></p>
     <br>
     <div id="row">
@@ -74,7 +74,8 @@
                 </p>
                 <label for="answer">Answer</label>
                 <br>
-                <input class="input_answer" type="number" name="case_1_answer" id="case_1_answer" min="0" required>
+                <input class="input_answer" type="number" name="case_1_answer" id="Case 1" min="0" required>
+                <div><button class="end_btn" onclick="showConfirmBox()">Next Case</button></div>
             </div>
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
@@ -86,8 +87,8 @@
                         <button onclick="location.href='case_2.html';" class="confirm_btn">Move forward</button>
                     </div>
                 </div>
-                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
             </div>
+
         </div>
     </div>
     <div class="right_screen column">

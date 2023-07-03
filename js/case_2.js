@@ -1,42 +1,54 @@
 
-var countDownDate;
+$(document).ready(function () {
+  var countDownDate;
 
-if (localStorage.getItem('countDownDate')) {
-  countDownDate = localStorage.getItem('countDownDate');
-} else {
-  countDownDate = new Date().getTime() + 35 * 60 * 1000;
-}
-
-// Update the count down every 1 second
-var x = setInterval(function () {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for hours, minutes and seconds
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="count_down"
-  document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("count_down").innerHTML = "Time's Up";
+  if (localStorage.getItem('countDownDate')) {
+    countDownDate = localStorage.getItem('countDownDate');
   } else {
-    // Store countdown date to localStorage
-    localStorage.setItem('countDownDate', countDownDate);
+    countDownDate = new Date().getTime() + 35 * 60 * 1000;
   }
-}, 1000);
+
+
+  // Update the count down every 1 second
+  var x = setInterval(function () {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for hours, minutes and seconds
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Pad the minutes and seconds with leading zeros if they are less than 10.
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
+    // Display the result in the element with id="count_down"
+    document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("count_down").innerHTML = "Time's Up";
+    } else {
+      // Store countdown date to localStorage
+      localStorage.setItem('countDownDate', countDownDate);
+    }
+  }, 1000);
+})
 
 // end analysis btn
 function showConfirmBox() {
-  const journalData = $('#case_two').html();
-  localStorage.setItem('case_2_answer', JSON.stringify(journalData));
+  // const journalData = $('#case_two').html();
+  // localStorage.setItem('8.Case 2', JSON.stringify(journalData));
+
+  $('.sortable').each(function () {
+    const id = $(this).data('title');
+    const value = $(this).text().replace(id, '').replace('X', '');
+    localStorage.setItem('Case 2 ' + id, value);
+  });
   document.getElementById("overlay").hidden = false;
 }
 function closeConfirmBox() {

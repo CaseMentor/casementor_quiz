@@ -222,16 +222,17 @@
   padding: 5px 12px;
   background-color: var(--capiton);
   color: var(--just_black);
-  position: absolute;
-  margin-left: 42%;
-  font-weight: 500;
+  position: relative;
   float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+
+  font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
   border-width: 3px;
   cursor: pointer;
   background-color: #d6dce5;
-  bottom: 0%;
   z-index: 1000;
   height: fit-content;
 }
@@ -307,6 +308,16 @@
   border-width: solid 3px;
   font-weight: 500;
   left: 35%;
+
+}
+
+.sortable {
+  margin: 10px;
+  border: 0px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
 
 }
 

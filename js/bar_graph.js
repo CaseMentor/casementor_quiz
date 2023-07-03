@@ -34,7 +34,9 @@ var x = setInterval(function () {
     // Time calculations for hours, minutes and seconds
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+    // Pad the minutes and seconds with leading zeros if they are less than 10.
+    minutes = minutes.toString().padStart(2, '0');
+    seconds = seconds.toString().padStart(2, '0');
     // Display the result in the element with id="count_down"
     document.getElementById("count_down").innerHTML = minutes + ":" + seconds;
 
@@ -56,46 +58,7 @@ $(function () {
             return $(this).clone().css("z-index", 1000).appendTo('body');
         },
         revert: 'invalid',
-        start: function () {
-            // Change the appearance of the original element as soon as the drag starts
-            $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
-        }
-    });
 
-});
-
-$(function () {
-    // Make the calculator's input field droppable
-    $("#inputField").droppable({
-        accept: ".draggable",
-        drop: function (event, ui) {
-            // const value = ui.helper.text();
-            let totalValue = ui.helper.text();
-            let dataTitle = ui.helper.attr('data-title');
-
-            // get the value by replacing the data-title from totalValue
-            let value = totalValue.replace(dataTitle, '').trim();
-            if (value === "AC") { // Clear the input field when 'AC' is dropped
-                $(this).val('');
-            } else if (value === "C") { // Remove the last character when 'C' is dropped
-                $(this).val($(this).val().slice(0, -1));
-            } else if (value === "=") { // Evaluate the expression when '=' is dropped
-                try {
-                    const expression = $(this).val();
-                    const result = eval(expression);
-                    if (isNaN(result)) {
-                        alert('Invalid Expression');
-                    } else {
-                        $(this).val(result);
-                        $('#result').text(result);
-                    }
-                } catch (error) {
-                    alert('Invalid Expression');
-                }
-            } else {
-                $(this).val($(this).val() + value);
-            }
-        }
     });
 
 });
@@ -229,20 +192,26 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+$(document).on('click', '.remove', function () {
+    $(this).parent().next('hr').remove();
+    $(this).closest('div').remove();
+});
 
 function updateChart() {
-    var value1 = document.getElementById('Maya_forest_target').value || 0;
-    var value2 = document.getElementById('Blue_lagoon_target').value || 0;
-    var value3 = document.getElementById('Maya_forest_actual').value || 0;
-    var value4 = document.getElementById('Blue_lagoon_actual').value || 0;
+    var value1 = document.getElementById('6.Graph - Maya forest target').value || 0;
+    var value2 = document.getElementById('6.Graph - Blue lagoon target').value || 0;
+    var value3 = document.getElementById('6.Graph - Maya forest actual').value || 0;
+    var value4 = document.getElementById('6.Graph - Blue lagoon actual').value || 0;
 
     myChart.data.datasets[0].data = [value1, value2];
     myChart.data.datasets[1].data = [value3, value4];
     myChart.update();
 }
 
+
 // Add input event listeners to all input fields
-document.getElementById('Maya_forest_target').addEventListener('input', updateChart);
-document.getElementById('Blue_lagoon_target').addEventListener('input', updateChart);
-document.getElementById('Maya_forest_actual').addEventListener('input', updateChart);
-document.getElementById('Blue_lagoon_actual').addEventListener('input', updateChart);
+document.getElementById('6.Graph - Maya forest target').addEventListener('input', updateChart);
+document.getElementById('6.Graph - Blue lagoon target').addEventListener('input', updateChart);
+document.getElementById('6.Graph - Maya forest actual').addEventListener('input', updateChart);
+document.getElementById('6.Graph - Blue lagoon actual').addEventListener('input', updateChart);
+

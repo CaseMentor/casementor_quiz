@@ -202,7 +202,7 @@
   border: 1px solid var(--capiton);
   border-radius: 10px;
   position: absolute;
-  width: 40%;
+  width: 600px;
   height: fit-content;
   top: 25%;
   left: 25%;
@@ -217,23 +217,27 @@
   padding: 5px 12px;
   background-color: var(--capiton);
   color: var(--just_black);
-  position: absolute;
-  margin-left: 50%;
-  font-weight: 500;
+  position: relative;
   float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+
+  font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
   border-width: 3px;
   cursor: pointer;
   background-color: #d6dce5;
-  bottom: 0%;
   z-index: 1000;
   height: fit-content;
 }
 
 #inside_confirm_p {
-  margin-bottom: 40px;
-  background: var(--outer)
+  margin-bottom: 20px;
+  background: var(--outer);
+  text-align: center;
+  font-weight: 350;
+
 }
 
 #forward {
@@ -253,10 +257,7 @@
   margin: 20px;
 }
 
-#inside_confirm_p {
-  float: left;
-  font-weight: 350;
-}
+
 
 .calculator {
   height: 100%;
@@ -354,4 +355,8 @@ label {
 #count_down {
   position: absolute;
   left: 40%;
+}
+
+#result {
+  width: fit-content;
 }

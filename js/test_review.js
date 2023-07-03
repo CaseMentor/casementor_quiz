@@ -1,5 +1,9 @@
 // Get the table body element
 var tableBody = document.getElementById('storageTable').getElementsByTagName('tbody')[0];
+localStorage.removeItem('undefined')
+localStorage.removeItem('journalData')
+localStorage.removeItem('countDownDate')
+
 
 // Create an array for all items in local storage
 var items = [];
@@ -22,6 +26,7 @@ items.sort(function (a, b) {
     if (a.key > b.key) { return 1; }
     return 0;
 });
+
 
 // Loop through the sorted array and add each item to the table
 for (var i = 0; i < items.length; i++) {

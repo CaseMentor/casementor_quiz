@@ -201,7 +201,7 @@
   border: 1px solid var(--capiton);
   border-radius: 10px;
   position: absolute;
-  width: 40%;
+  width: 600px;
   height: fit-content;
   top: 25%;
   left: 25%;
@@ -216,22 +216,24 @@
   padding: 5px 12px;
   background-color: var(--capiton);
   color: var(--just_black);
-  position: absolute;
-  margin-left: 50%;
-  font-weight: 500;
+  position: relative;
   float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+
+  font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
   border-width: 3px;
   cursor: pointer;
   background-color: #d6dce5;
-  bottom: 0%;
   z-index: 1000;
   height: fit-content;
 }
 
 #inside_confirm_p {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  font-weight: 350;
   background: var(--outer)
 }
 
@@ -252,10 +254,6 @@
   margin: 20px;
 }
 
-#inside_confirm_p {
-  float: left;
-  font-weight: 350;
-}
 
 table {
   border-collapse: collapse;
@@ -273,14 +271,14 @@ th {
   text-align: center;
 }
 
-td:nth-child(even) {
+td:nth-child {
   background-color: #dddddd;
 }
 
 .draggable {
   background-color: var(--capiton);
   color: var(--just_black);
-  border: 1px solid var(--just_black);
+  border: 1px dashed var(--just_black);
   cursor: move;
 }
 

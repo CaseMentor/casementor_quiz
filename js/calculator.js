@@ -25,10 +25,11 @@ $(document).ready(function () {
       $(this).val(value);
     }
   })
-  if (localStorage.getItem('graph_type')) {
-    const value = localStorage.getItem('graph_type');
+  if (localStorage.getItem('5.graph_type')) {
+    const value = localStorage.getItem('5.graph_type');
     $('input[name="page"][value="' + value + '"]').prop('checked', true);
   }
+
   // Set the date we're counting down to
   var countDownDate;
 
@@ -313,7 +314,7 @@ document.getElementById('continueButton').addEventListener('click', function () 
   var radios = document.getElementsByName('page');
   for (var i = 0, length = radios.length; i < length; i++) {
     if (radios[i].checked) {
-      localStorage.setItem('graph_type', radios[i].value)
+      localStorage.setItem('5.graph_type', radios[i].id)
       window.location.href = radios[i].value;
       break;
     }

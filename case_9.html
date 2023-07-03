@@ -86,7 +86,8 @@
             <div class="question">Report the median and mode for Y10-Y11 and Y11-Y12</div>
             <form>
                 <label for="median_y10_y11">Median Y10-Y11</label>
-                <select class="select_box" name="case_9_median_y10_y11" id="case_9_median_y10_y11">
+                <select class="select_box" name="case_9_median_y10_y11" id="Case 9 median y10-y11">
+                    <option value="" selected disabled hidden>Choose</option>
                     <option value="22">22</option>
                     <option value="23">23</option>
                     <option value="25">25</option>
@@ -101,7 +102,8 @@
                 </select>
                 <br>
                 <label for="mode_y10_y11">Mode Y10-Y11</label>
-                <select class="select_box" name="case_9_mode_y10_y11" id="case_9_mode_y10_y11">
+                <select class="select_box" name="case_9_mode_y10_y11" id="Case 9 mode y10-y11">
+                    <option value="" selected disabled hidden>Choose</option>
                     <option value="22">22</option>
                     <option value="23">23</option>
                     <option value="25">25</option>
@@ -116,7 +118,8 @@
                 </select>
                 <br>
                 <label for="median_y11_y12">Median Y11-Y12</label>
-                <select class="select_box" name="case_9_median_y11_y12" id="case_9_median_y11_y12">
+                <select class="select_box" name="case_9_median_y11_y12" id="Case 9 median y11-y12">
+                    <option value="" selected disabled hidden>Choose</option>
                     <option value="22">22</option>
                     <option value="23">23</option>
                     <option value="25">25</option>
@@ -131,7 +134,8 @@
                 </select>
                 <br>
                 <label for="mode_y11_y12">Mode Y11-Y12</label>
-                <select class="select_box" name="case_9_mode_y11_y12" id="case_9_mode_y11_y12">
+                <select class="select_box" name="case_9_mode_y11_y12" id="Case 9 mode y11-y12">
+                    <option value="" selected disabled hidden>Choose</option>
                     <option value="22">22</option>
                     <option value="23">23</option>
                     <option value="25">25</option>
@@ -145,6 +149,8 @@
                     <option value="63">63</option>
                 </select>
             </form>
+            <div> <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
+            </div>
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
                     <div class="confirm-box">
@@ -155,7 +161,6 @@
                         <button onclick="location.href='case_10.html';" class="confirm_btn">Move forward</button>
                     </div>
                 </div>
-                <button class="end_btn" onclick="showConfirmBox()">Next Case</button>
             </div>
         </div>
     </div>

@@ -176,16 +176,16 @@
 }
 
 .confirm-box {
-  border: 3px solid var(--nav_blue);
+  border: 1px solid var(--capiton);
   border-radius: 10px;
   position: absolute;
-  width: fit-content;
+  width: 600px;
   height: fit-content;
   top: 25%;
   left: 25%;
   padding: 20px 15px;
   text-align: center;
-  background: var(--inner);
+  background: var(--outer);
   z-index: 1001;
 }
 
@@ -194,6 +194,11 @@
   padding: 5px 12px;
   background-color: var(--capiton);
   color: var(--just_black);
+  position: relative;
+  float: right;
+  margin-top: 50px;
+  margin-right: 20px;
+
   font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
@@ -202,8 +207,6 @@
   background-color: #d6dce5;
   z-index: 1000;
   height: fit-content;
-  position: relative;
-  float: right;
 }
 
 
@@ -222,7 +225,8 @@
 
 #inside_confirm_p {
   text-align: center;
-  font-weight: 200;
+  font-weight: 350;
+  background-color: var(--outer);
 }
 
 table {
