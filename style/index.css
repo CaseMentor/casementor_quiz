@@ -22,7 +22,7 @@
     padding: 0;
     background-color: var(--outer);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 26px;
+    font-size: 22px;
     color: var(--capiton);
     font-weight: 320;
 
@@ -242,6 +242,26 @@
     z-index: 1001;
 }
 
+#clearStorage {
+    position: absolute;
+    left: 0;
+    margin-top: 210px;
+    margin-left: 30px;
+    float: right;
+    z-index: 1000;
+    height: fit-content;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+    border-width: 3px;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 5px 12px;
+    background-color: #d40000;
+    color: white;
+    position: absolute;
+    font-weight: 500;
+}
+
 .main_screen .end_btn {
     font-size: 20px;
     padding: 5px 12px;
@@ -326,7 +346,8 @@
     height: auto;
 }
 
-.island .draggable {
+.island .draggable,
+.island .afterDrag {
     position: absolute;
     text-align: center;
     font-size: 20px;
@@ -340,7 +361,8 @@
     /* Add other styles as needed */
 }
 
-.chart .draggable {
+.chart .draggable,
+.chart .afterDrag {
     position: absolute;
     text-align: center;
     font-size: 18px;
@@ -499,7 +521,7 @@
     border: 1px var(--just_black);
     border-style: dashed;
     cursor: move;
-    width: 100%;
+    width: fit-content;
 
 }
 
@@ -602,4 +624,10 @@
     position: absolute;
     top: -2px;
     right: -20px;
+}
+
+.dragging .title {
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
 }

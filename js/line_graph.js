@@ -54,7 +54,7 @@ var x = setInterval(function () {
 
 $(function () {
     // Make elements with class 'draggable' draggable
-    $(".draggable, .sortable").draggable({
+    $(".draggable").draggable({
         helper: function () {
             return $(this).clone().css("z-index", 1000).appendTo('body');
         },
@@ -62,6 +62,22 @@ $(function () {
 
     });
 
+});
+$('#Journal_container').sortable({
+    cancel: '.title',
+
+    helper: 'clone',
+    start: function (event, ui) {
+        ui.helper.find('.title').hide();
+        ui.helper.css('width', 'fit-content');
+        ui.helper.css('height', 'fit-content');
+
+    },
+    cruserAt: { left: 5 },
+
+    stop: function (event, ui) {
+        ui.item.find('.title').show();
+    }
 });
 
 $(function () {
@@ -91,8 +107,7 @@ $(".journal_container").droppable({
             // Add a horizontal line after the new element
             newElem.appendTo(this);
             newElem.append("<button class='remove'>X</button>");
-            var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
-            wrapper.appendTo(this);
+            newElem.appendTo(this);
             $(this).sortable().removeClass('ui-draggable ui-draggable-handle');
             // your droppable-tile code
         }
@@ -101,8 +116,7 @@ $(".journal_container").droppable({
             newElem.removeClass('ui-draggable ui-draggable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
             newElem.next('hr').remove();
             // newElem.appendTo(this);
-            var wrapper = $('<div class="journal_container">').append(newElem, "<hr>");
-            wrapper.appendTo(this);
+            newElem.appendTo(this);
             // Make the 'right_screen' container sortable
         }
     }

@@ -148,12 +148,13 @@ $(function () {
       let dataTitle = ui.helper.attr('data-title');
       let otherTitle = ui.helper.attr('title');
       // get the value by replacing the data-title from totalValue
-      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
-      if (value === "AC") { // Clear the input field when 'AC' is dropped
+      let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.%]/g, '').trim();
+
+      if (value === "AC") {
         $(this).val('');
-      } else if (value === "C") { // Remove the last character when 'C' is dropped
+      } else if (value === "C") {
         $(this).val($(this).val().slice(0, -1));
-      } else if (value === "=") { // Evaluate the expression when '=' is dropped
+      } else if (value === "=") {
         try {
           const expression = $(this).val();
           const result = eval(expression);
@@ -167,6 +168,11 @@ $(function () {
           alert('Invalid Expression');
         }
       } else {
+        // Check if value contains %
+        if (value.includes("%")) {
+          // Replace % with an empty string, convert to number and divide by 100
+          value = Number(value.replace("%", "")) / 100;
+        }
         $(this).val($(this).val() + value);
       }
     }
@@ -177,6 +183,7 @@ $(function () {
 $(function () {
   // Make elements with class 'draggable' draggable
   $(".draggable").draggable({
+    cursorAt: { left: 5 },
     helper: function () {
       return $(this).clone().css("z-index", 1100).appendTo('body');
     },

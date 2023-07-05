@@ -31,12 +31,13 @@
                         </div>
                     </li>
                     <li class="item" id="analysis">
-                        <a onclick="SaveToLocalStorage()" href="calculator_question_1.html" class="btn">Analysis</a>
+                        <a onclick="SaveToLocalStorage()" class="btn">Analysis</a>
                     </li>
                     <li class="item" id="report">
                         <a href="#report" class="btn">Report</a>
                     </li>
                 </ul>
+                <button id="clearStorage">Reset</button>
             </div>
         </div>
         <!--main screen column-->
@@ -48,7 +49,7 @@
                         <p id="inside_confirm_p">If you have collected all the relevant information
                             you can now move to the analysis phase.</p>
                         <button onclick="isConfirm(false)" class="confirm_btn">Back to Investigation</button>
-                        <button onclick="location.href='calculator_question_1.html#analysis';" class="confirm_btn">Move
+                        <button onclick="SaveToLocalStorage()" class="confirm_btn">Move
                             to
                             Analysis</button>
                     </div>

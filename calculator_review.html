@@ -55,59 +55,61 @@
                         report</button>
                 </div>
             </div>
+        </div>
 
-            <div class="main_screen column">
-                <div class="container_main_screen">
-                    <div class="question_text">
-                        <h1>Review</h1>
-                        <br>
-                        <p>Please review your answers and if needed
-                            go back to the Investigation. You will be able
-                            to use only the information in the Research
-                            Journal in the next phase.
-                        </p>
+
+        <div class="main_screen column">
+            <div class="container_main_screen">
+                <div class="question_text">
+                    Review
+                    <br>
+                    <p>Please review your answers and if needed
+                        go back to the Investigation. You will be able
+                        to use only the information in the Research
+                        Journal in the next phase.
+                    </p>
+                </div>
+                <div class="calculator">
+                    <div class="display">
+                        <input type="text" id="inputField">
+                        <hr id="sep_line">
+                        <div id="result" class="draggable" draggable="true">0</div>
                     </div>
-                    <div class="calculator">
-                        <div class="display">
-                            <input type="text" id="inputField">
-                            <hr id="sep_line">
-                            <div id="result" class="draggable" draggable="true">0</div>
-                        </div>
-                        <div class="buttons">
-                            <button class="calculator-btn items">AC</button>
-                            <button class="calculator-btn items" data-value="(">(</button>
-                            <button class="calculator-btn items" data-value=")">)</button>
-                            <button class="calculator-btn items">C</button>
-                            <button class="calculator-btn" data-value="7">7</button>
-                            <button class="calculator-btn" data-value="8">8</button>
-                            <button class="calculator-btn" data-value="9">9</button>
-                            <button class="calculator-btn items" data-value="/">/</button>
-                            <button class="calculator-btn" data-value="4">4</button>
-                            <button class="calculator-btn" data-value="5">5</button>
-                            <button class="calculator-btn" data-value="6">6</button>
-                            <button class="calculator-btn items" data-value="*">*</button>
-                            <button class="calculator-btn" data-value="1">1</button>
-                            <button class="calculator-btn" data-value="2">2</button>
-                            <button class="calculator-btn" data-value="3">3</button>
-                            <button class="calculator-btn items" data-value="-">-</button>
-                            <button class="calculator-btn" data-value="0">0</button>
-                            <button class="calculator-btn" data-value=".">.</button>
-                            <button class="calculator-btn" data-value="=">=</button>
-                            <button class="calculator-btn items" data-value="+">+</button>
-                        </div>
+                    <div class="buttons">
+                        <button class="calculator-btn items">AC</button>
+                        <button class="calculator-btn items" data-value="(">(</button>
+                        <button class="calculator-btn items" data-value=")">)</button>
+                        <button class="calculator-btn items">C</button>
+                        <button class="calculator-btn" data-value="7">7</button>
+                        <button class="calculator-btn" data-value="8">8</button>
+                        <button class="calculator-btn" data-value="9">9</button>
+                        <button class="calculator-btn items" data-value="/">/</button>
+                        <button class="calculator-btn" data-value="4">4</button>
+                        <button class="calculator-btn" data-value="5">5</button>
+                        <button class="calculator-btn" data-value="6">6</button>
+                        <button class="calculator-btn items" data-value="*">*</button>
+                        <button class="calculator-btn" data-value="1">1</button>
+                        <button class="calculator-btn" data-value="2">2</button>
+                        <button class="calculator-btn" data-value="3">3</button>
+                        <button class="calculator-btn items" data-value="-">-</button>
+                        <button class="calculator-btn" data-value="0">0</button>
+                        <button class="calculator-btn" data-value=".">.</button>
+                        <button class="calculator-btn" data-value="=">=</button>
+                        <button class="calculator-btn items" data-value="+">+</button>
                     </div>
                 </div>
-                <div><button class="end_btn" onclick="showConfirmBox()">Conclude</button></div>
-
             </div>
-            <div class="right_screen">
-                <div class="journal_container" id="Journal_container">
-                    <h2>Research Journal</h2>
-                    <hr>
-                </div>
+            <div><button class="end_btn" onclick="showConfirmBox()">Conclude</button></div>
+
+        </div>
+        <div class="right_screen">
+            <div class="journal_container" id="Journal_container">
+                <h2>Research Journal</h2>
+                <hr>
             </div>
         </div>
-        <script src="./js/calculator.js"></script>
+    </div>
+    <script src="./js/calculator.js"></script>
 </body>
 
 </html>

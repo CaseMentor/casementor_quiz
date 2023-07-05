@@ -52,7 +52,9 @@
                     <p id="inside_confirm_p">You won’t be able to change your answer</p>
                     <br>
                     <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
-                    <button onclick="location.href='calculator_question_2.html#analysis';" class="confirm_btn">Move to
+                    <button
+                        onclick="localStorage.setItem('calculator_state','2'); location.href='calculator_question_2.html#analysis';"
+                        class="confirm_btn">Move to
                         Question 2</button>
                 </div>
             </div>

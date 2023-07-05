@@ -1,9 +1,24 @@
+window.onload = function () {
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    // If not logged in, redirect to login page
+    window.location.href = 'login.html';
+  }
+};
 $(document).ready(function () {
   // Check if there is any data in the local storage.
   if (localStorage.getItem('journalData')) {
     const journalData = JSON.parse(localStorage.getItem('journalData'));
     $('#journal_container').html(journalData);
   }
+  $(function () {
+    $(".draggable").each(function () {
+      var elementId = $(this).attr('id');
+      if ($('#journal_container').find('#' + elementId).length > 0) {
+        $(this).removeClass('draggable').addClass('afterDrag');
+
+      }
+    });
+  });
 });
 // Set the date we're counting down to
 var countDownDate;
@@ -44,20 +59,41 @@ var x = setInterval(function () {
   }
 }, 1000);
 
+document.getElementById('clearStorage').addEventListener('click', function () {
+  // Temporarily store isLoggedIn
+  var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+  // Clear all items from local storage
+  localStorage.clear();
+
+  // Restore isLoggedIn
+  localStorage.setItem('isLoggedIn', isLoggedIn);
+  // Refresh the page
+  location.reload();
+});
+
 $(function () {
   // Make elements with class 'draggable' draggable
-  $(".draggable, .sortable").draggable({
+  $(".draggable").draggable({
     cancel: ".title",
     helper: function () {
       return $(this).clone().css("z-index", 10).appendTo('body');
     },
     revert: 'invalid',
-    start: function () {
-
-      // Change the appearance of the original element as soon as the drag starts
+    start: function (event, ui) {
+      $(ui.helper).addClass('dragging');
       $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
+    },
+    stop:
+      function (event, ui) {
+        $(ui.helper).removeClass('dragging');
+      },
+  })
 
-    }
+
+
+  $(".draggable .afterDrag").droppable({
+    accept: '.sortable'
   })
 
 
@@ -68,9 +104,12 @@ $(function () {
     tolerance: "pointer",
     drop: function (event, ui) {
       if (ui.draggable.hasClass('draggable')) {
+
         var newElem = $(ui.helper).clone(false);
         newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
         newElem.removeClass('draggable');
+        newElem.removeClass('dragging');
+
         var title = ui.helper.data('title');
         newElem.addClass('sortable')
         // Add a title to the new element
@@ -85,6 +124,8 @@ $(function () {
         var newElem = $(ui.draggable);
         newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
         newElem.next('hr').remove();
+        newElem.removeClass('dragging');
+
         // newElem.appendTo(this);
         newElem.appendTo(this);
       }
@@ -95,11 +136,22 @@ $(function () {
   );
 
   $(document).on('click', '.remove', function () {
+    // Get the ID of the parent div
+    var elementId = $(this).parent().attr('id');
+
+    // Change the class of the corresponding element in the main column back to 'draggable'
+    $('#' + elementId).removeClass('afterDrag').addClass('draggable');
+
     $(this).parent().next('hr').remove();
     $(this).closest('div').remove();
+
   });
 
-  //   $(".sortable").sortable({})
+});
+
+$('#journal_container').sortable({
+  cancel: '.title',
+
 });
 
 
@@ -138,7 +190,21 @@ $("#nextPageButton").click(function () {
   localStorage.setItem('journalData', JSON.stringify(journalData));
 
   // This is where you'd put your code to navigate to the next page
-  window.location.href = "calculator_question_1.html";
+  if (localStorage.getItem('journalData')) {
+    const journalData = JSON.parse(localStorage.getItem('journalData'));
+    $('#Journal_container').html(journalData);
+    $('.sortable').each(function () {
+      $(this).sortable({ cancel: '.title' }).removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
+    });
+  }
+
+  if (localStorage.getItem('3.Question 3 Maya Forest')) {
+    window.location.href = "calculator_question_3.html";
+  } if (localStorage.getItem('3.Question 3 Maya Forest')) {
+    window.location.href = "calculator_question_2.html";
+  } else {
+    window.location.href = "calculator_question_1.html";
+  }
 });
 
 function SaveToLocalStorage() {
@@ -171,6 +237,17 @@ function SaveToLocalStorage() {
     const value = $(this).val();
     localStorage.setItem(id, value);
   });
+  let calculatorState = localStorage.getItem('calculator_state');
+
+  if (calculatorState === 'review') {
+    window.location.href = "calculator_review.html";
+  } else if (calculatorState === '3') {
+    window.location.href = "calculator_question_3.html";
+  } else if (calculatorState === '2') {
+    window.location.href = "calculator_question_2.html";
+  } else {
+    window.location.href = "calculator_question_1.html";
+  }
 
 
 

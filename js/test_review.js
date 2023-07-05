@@ -3,6 +3,8 @@ var tableBody = document.getElementById('storageTable').getElementsByTagName('tb
 localStorage.removeItem('undefined')
 localStorage.removeItem('journalData')
 localStorage.removeItem('countDownDate')
+localStorage.removeItem('calculator_state')
+
 
 
 // Create an array for all items in local storage

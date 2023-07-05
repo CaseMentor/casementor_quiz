@@ -11,16 +11,16 @@
   --clr_of_input: #3b3838;
 }
 
+/*the whole page css*/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: var(--outer);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-size: 26px;
+  background-color: var(--inner);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size: 22px;
   color: var(--capiton);
-  font-weight: 320;
-
 }
 
 .body {
@@ -228,7 +228,7 @@
   color: var(--just_black);
   position: relative;
   float: right;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-right: 20px;
 
   font-weight: 500;
@@ -260,15 +260,6 @@
   font-weight: 200;
 }
 
-
-/*change the scroll bar*/
-
-.contianer_drag {
-  background-color: var(--inner);
-  margin-top: 1rem;
-  padding: 1rem;
-}
-
 .draggable,
 .sortable {
   background-color: var(--capiton);
@@ -276,6 +267,7 @@
   border: 1px solid var(--just_black);
   cursor: move;
   width: fit-content;
+
 }
 
 .right_screen .draggable,
@@ -288,9 +280,7 @@
   border: 1px var(--just_black);
 }
 
-.draggable.dragging {
-  opacity: 0.5;
-}
+
 
 .calculator {
   height: 380px;
@@ -396,6 +386,8 @@ label {
   position: absolute;
   top: -2px;
   right: -20px;
+  width: 0.1px;
+  font-size: 0.1px;
 }
 
 #count_down {
@@ -407,24 +399,38 @@ label {
   color: white;
 }
 
-.sortable .remove {
+/* .sortable .remove {
   position: absolute;
   top: -2px;
   right: -20px;
-}
+} */
 
-/*the whole page css*/
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  background-color: var(--inner);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-weight: 200;
-  font-size: 26px;
-  color: var(--capiton);
-}
+
 
 .report_answer {
   width: 80px
 }
+
+
+/* .dragging .title {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+} */
+
+/* .sortable .ui-sortable-helper {
+  width: 1px;
+  height: 1px;
+  font-size: 1px;
+} */
+
+.ui-sortable-helper .title {
+
+  font-size: 14px;
+  width: fit-content;
+}
+
+/* .ui-sortable-helper {
+  font-size: 14px;
+  width: fit-content;
+} */

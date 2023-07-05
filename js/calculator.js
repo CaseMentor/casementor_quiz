@@ -1,3 +1,10 @@
+window.onload = function () {
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    // If not logged in, redirect to login page
+    window.location.href = 'log_in.html';
+  }
+};
+
 $(document).ready(function () {
   // Check if there is any data in the local storage.
   var journal = document.getElementById("Journal_container")
@@ -5,6 +12,19 @@ $(document).ready(function () {
     if (localStorage.getItem('journalData')) {
       const journalData = JSON.parse(localStorage.getItem('journalData'));
       $('#Journal_container').html(journalData);
+      $('.sortable').each(function (event, ui) {
+        var newElem = $(ui.helper).clone(false);
+        newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
+        newElem.removeClass('draggable');
+        newElem.removeClass('dragging');
+        newElem.addClass('sortable')
+        // Add a title to the new element
+        newElem.appendTo(this);
+        // $("<hr>").appendTo(this);
+        $(this).sortable({ cancel: '.title' }).removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
+      });
+
+
     }
   }
 
@@ -97,12 +117,13 @@ $(document).ready(function () {
         let dataTitle = ui.helper.attr('data-title');
         let otherTitle = ui.helper.attr('title');
         // get the value by replacing the data-title from totalValue
-        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.]/g, '').trim();
-        if (value === "AC") { // Clear the input field when 'AC' is dropped
+        let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.%]/g, '').trim();
+
+        if (value === "AC") {
           $(this).val('');
-        } else if (value === "C") { // Remove the last character when 'C' is dropped
+        } else if (value === "C") {
           $(this).val($(this).val().slice(0, -1));
-        } else if (value === "=") { // Evaluate the expression when '=' is dropped
+        } else if (value === "=") {
           try {
             const expression = $(this).val();
             const result = eval(expression);
@@ -116,6 +137,11 @@ $(document).ready(function () {
             alert('Invalid Expression');
           }
         } else {
+          // Check if value contains %
+          if (value.includes("%")) {
+            // Replace % with an empty string, convert to number and divide by 100
+            value = Number(value.replace("%", "")) / 100;
+          }
           $(this).val($(this).val() + value);
         }
       }
@@ -126,15 +152,19 @@ $(document).ready(function () {
 
   $(function () {
     // Make elements with class 'draggable' draggable
-    $(".draggable, .sortable").draggable({
+    $(".draggable").draggable({
       cancel: '.title',
       helper: function () {
         return $(this).clone().css("z-index", 1100).appendTo('body');
       },
       revert: 'invalid',
-
+      start: function (event, ui) {
+        $(ui.helper).addClass('dragging');
+        $(ui.draggable).addClass('dragging');
+      }
     });
-    $(".right_screen").sortable({})
+
+    // $(".sortable").sortable({})
 
     // Make the 'Journal_container' a droppable for the draggable
     $(".right_screen").droppable({
@@ -145,11 +175,11 @@ $(document).ready(function () {
           var newElem = $(ui.helper).clone(false);
           newElem.removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging').css({ 'position': 'relative', 'left': '', 'top': '' });
           newElem.removeClass('draggable');
+          newElem.removeClass('dragging');
           newElem.addClass('sortable')
           // Add a title to the new element
           newElem.prepend("<div class='title' contenteditable='true'>Calculator result</div>");
           // Add a horizontal line after the new element
-          newElem.append("<button class='remove'>X</button>");
           newElem.appendTo(this);
           // $("<hr>").appendTo(this);
           $(this).sortable({ cancel: '.title' }).removeClass('ui-draggable ui-draggable-handle ui-sortable-handle');
@@ -157,11 +187,14 @@ $(document).ready(function () {
         }
         else if (ui.draggable.hasClass('sortable')) {
           var newElem = $(ui.draggable);
-          newElem.removeClass('ui-draggable ui-draggable-handle ui-sortable ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
+          newElem.removeClass('ui-sortable ui-draggable ui-draggable-handle ui-sortable-handle').css({ 'position': 'relative', 'left': '', 'top': '' });
           // newElem.appendTo(this);
+          newElem.addClass('sortable')
           newElem.removeClass('draggable');
+          newElem.removeClass('dragging');
           newElem.appendTo(this);
           $(this).sortable();
+
         }
         // Make the 'right_screen' container sortable
       }
@@ -174,11 +207,22 @@ $(document).ready(function () {
       $(this).closest('div').remove();
     });
 
-    $(".sortable").sortable({})
+
   });
 
+  $('#Journal_container').sortable({
+    cancel: '.title',
+    helper: 'clone',
+    start: function (event, ui) {
+      ui.helper.find('.title').hide();
+      ui.helper.css('width', 'fit-content');
+      ui.helper.css('height', 'fit-content');
 
-
+    },
+    stop: function (event, ui) {
+      ui.item.find('.title').show();
+    }
+  });
 
 
 
