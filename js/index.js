@@ -1,7 +1,7 @@
 window.onload = function () {
   if (localStorage.getItem('isLoggedIn') !== 'true') {
     // If not logged in, redirect to login page
-    window.location.href = 'login.html';
+    window.location.href = 'log_in.html';
   }
 };
 $(document).ready(function () {
