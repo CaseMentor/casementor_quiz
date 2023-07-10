@@ -83,19 +83,14 @@ $(function () {
     start: function (event, ui) {
       $(ui.helper).addClass('dragging');
       $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
+
     },
     stop:
       function (event, ui) {
         $(ui.helper).removeClass('dragging');
+        $(this).removeClass('draggable')
       },
   })
-
-
-
-  $(".draggable .afterDrag").droppable({
-    accept: '.sortable'
-  })
-
 
 
   // Make the 'Journal_container' a droppable for the draggable
@@ -247,8 +242,20 @@ function SaveToLocalStorage() {
     window.location.href = "calculator_question_2.html";
   } else {
     window.location.href = "calculator_question_1.html";
+    localStorage.setItem('calculator_state', '1');
   }
-
-
-
+}
+function PressAnalysisButtonToLocalStorage() {
+  let calculatorState = localStorage.getItem('calculator_state');
+  if (calculatorState === 'review') {
+    window.location.href = "calculator_review.html";
+  } else if (calculatorState === '3') {
+    window.location.href = "calculator_question_3.html";
+  } else if (calculatorState === '2') {
+    window.location.href = "calculator_question_2.html";
+  }
+  else if (calculatorState === '1') {
+    window.location.href = "calculator_question_1.html";
+  } else {
+  }
 }

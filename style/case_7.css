@@ -17,7 +17,7 @@
   background-color: var(--inner);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: 200;
-  font-size: 26px;
+  font-size: 22px;
   color: var(--capiton);
 }
 
@@ -301,20 +301,24 @@ td:nth-child {
 }
 
 .calculator {
-  height: 500px;
-  width: 300px;
+  margin-left: 25px;
+  height: 380px;
+  width: 250px;
+  text-align: center;
   background-color: var(--just_black);
-  border: 1px solid #ccc;
-  padding: 25px;
-  float: right;
+  border: 3px solid #ccc;
+  padding: 15px;
 }
 
 .display {
   margin-bottom: 10px;
+  width: 100%;
 }
 
-#inputField {
-  width: 100%;
+#result {
+  background-color: white;
+  width: fit-content;
+
 }
 
 .buttons {
@@ -322,12 +326,12 @@ td:nth-child {
   background-color: var(--just_black);
   grid-template-columns: repeat(4, 1fr);
   gap: 5px;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .calculator-btn {
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: 100%;
   background-color: #afabab;
 }
 
@@ -362,4 +366,8 @@ label {
 #count_down {
   position: absolute;
   left: 40%;
+}
+
+#inputField {
+  width: 100%;
 }

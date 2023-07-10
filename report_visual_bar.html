@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visual | Bar Line</title>
     <link rel="stylesheet" href="./style/report_graph_pie.css">
+    <link rel="stylesheet" href="./style/calculator.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -14,8 +15,9 @@
 </head>
 
 <body class="body">
-    <p id="count_down"></p>
-    <br>
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
     <div id="row">
         <div class="left column">
             <!--build the menu and the submenus-->
@@ -40,6 +42,19 @@
                         </div>
                     </li>
                 </ul>
+                <button id="clearStorage">Restart</button>
+            </div>
+        </div>
+        <div class="container_main_screen">
+            <div class="overlay" id="overlay" hidden>
+                <div class="confirm-box">
+                    <h2 id="forward">Do you want to move to the next section?</h2> <br>
+                    <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                    <br>
+                    <button onclick="isConfirm(false)" class="confirm_btn">Back to the questions</button>
+                    <button onclick="location.href='case_1.html#analysis';" class="confirm_btn">Move to next
+                        section</button>
+                </div>
             </div>
         </div>
         <div class="main_screen column">
@@ -73,16 +88,7 @@
                     <div> <button class="end_btn" onclick="showConfirmBox()">Complete report</button>
                     </div>
                 </div>
-                <div class="overlay" id="overlay" hidden>
-                    <div class="confirm-box">
-                        Do you want to move to the next section?
-                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
-                        <br>
-                        <button onclick="isConfirm(false)" class="confirm_btn">Back to the questions</button>
-                        <button onclick="location.href='case_1.html#analysis';" class="confirm_btn">Move to next
-                            section</button>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="right_screen">

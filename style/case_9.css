@@ -244,11 +244,6 @@ th {
   font-size: 18px;
 }
 
-td:nth-child(even) {
-  background-color: #dddddd;
-  color: black;
-  border-color: black;
-}
 
 .question {
   margin-left: 50px;

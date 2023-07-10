@@ -14,8 +14,9 @@
 </head>
 
 <body class="body">
-    <p id="count_down"></p>
-    <br>
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
     <div id="row">
         <div class="left column">
             <!--build the menu and the submenus-->
@@ -40,9 +41,25 @@
                         </div>
                     </li>
                 </ul>
+                <button id="clearStorage">Restart</button>
+
             </div>
         </div>
         <!--main screen column-->
+        <div class="container_main_screen">
+
+            <div class="overlay" id="overlay" hidden>
+                <div class="confirm-box">
+                    <div onclick="closeConfirmBox()" class="close"></div>
+                    <h2 id="forward">Do you want to move to the next section?</h2> <br>
+                    <p id="inside_confirm_p">You won’t be able to change your answer</p>
+                    <br>
+                    <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
+                    <button onclick="location.href='report_graph.html#analysis';" class="confirm_btn">Move to next
+                        section</button>
+                </div>
+            </div>
+        </div>
         <div class="main_screen column">
             <div class="container_main_screen">
                 <div id="#written" class="container">
@@ -74,17 +91,7 @@
                     to reach the final target.
 
                 </div>
-                <div class="overlay" id="overlay" hidden>
-                    <div class="confirm-box">
-                        <div onclick="closeConfirmBox()" class="close"></div>
-                        <h2>Do you want to move to the next section?</h2>
-                        <p id="inside_confirm_p">You won’t be able to change your answer</p>
-                        <br>
-                        <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
-                        <button onclick="location.href='report_graph.html#analysis';" class="confirm_btn">Move to next
-                            section</button>
-                    </div>
-                </div>
+
                 <button class="end_btn" onclick="showConfirmBox()">Next Question</button>
             </div>
         </div>

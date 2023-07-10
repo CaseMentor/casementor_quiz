@@ -45,6 +45,9 @@
   border-bottom: 3px solid var(--capiton);
   border-right: 10px solid var(--capiton);
   background-color: var(--inner);
+  overflow-y: scroll;
+
+
 }
 
 /*the main screen */

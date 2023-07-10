@@ -72,8 +72,12 @@ $(function () {
             let dataTitle = ui.helper.attr('data-title');
             let otherTitle = ui.helper.attr('title');
             // get the value by replacing the data-title from totalValue
-            let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/\D/g, '').trim();
-            $(this).val($(this).val() + value);
+            let value = totalValue.replace(dataTitle, '').replace('X', '').replace(/[^0-9.%]/g, '').trim();
+            if (value.includes("%")) {
+                // Replace % with an empty string, convert to number and divide by 100
+                value = Number(value.replace("%", "")) / 100;
+            }
+            $(this).val(value);
         }
     });
 })
@@ -229,3 +233,15 @@ document.getElementById('6.Graph - Blue lagoon target').addEventListener('input'
 document.getElementById('6.Graph - Maya forest actual').addEventListener('input', updateChart);
 document.getElementById('6.Graph - Blue lagoon actual').addEventListener('input', updateChart);
 
+document.getElementById('clearStorage').addEventListener('click', function () {
+    // Temporarily store isLoggedIn
+    var isLoggedIn = localStorage.getItem('isLoggedIn');
+
+    // Clear all items from local storage
+    localStorage.clear();
+
+    // Restore isLoggedIn
+    localStorage.setItem('isLoggedIn', isLoggedIn);
+    // Refresh the page
+    window.location.href = "index.html";
+});

@@ -232,6 +232,7 @@
 
 form {
   float: left;
+  margin-bottom: 20px;
 }
 
 table {
@@ -252,10 +253,8 @@ th {
   text-align: center;
 }
 
-td:nth-child(even) {
-  background-color: #dddddd;
-  border-color: black;
-  color: black;
+.question_title {
+  font-weight: 500;
 }
 
 .question_container {

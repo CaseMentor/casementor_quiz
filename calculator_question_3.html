@@ -14,8 +14,9 @@
 </head>
 
 <body class="body">
-    <p id="count_down"></p>
-    <br>
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
     <div id="row">
         <div class="left column">
             <!--build the menu and the submenus-->
@@ -32,22 +33,23 @@
                             <a href='#analysis'>Question 1</a>
                             <a href='#analysis'>Question 2</a>
                             <a href='#analysis' class="btn_active">Question 3</a>
-                            <a href='calculator_review.html#analysis'>Review</a>
+                            <a href='#analysis'>Review</a>
                         </div>
                     </li>
                     <li class="item" id="report">
-                        <a href="#report" class="btn">Report</a>
+                        <a href="#" class="btn">Report</a>
                         <div class="smenu">
                         </div>
                     </li>
                 </ul>
+                <button id="clearStorage">Restart</button>
             </div>
         </div>
         <!--main screen column-->
         <div class="container_main_screen">
             <div class="overlay" id="overlay" hidden>
                 <div class="confirm-box">
-                    <h2>Do you want to move to the review?</h2>
+                    <h2 id="forward">Do you want to move to the review?</h2><br>
                     <p id="inside_confirm_p">You won’t be able to change your answer</p>
                     <br>
                     <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>

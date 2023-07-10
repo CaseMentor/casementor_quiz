@@ -14,8 +14,9 @@
 </head>
 
 <body class="body">
-    <p id="count_down"></p>
-    <br>
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
     <div id="row">
         <div class="left column">
             <!--build the menu and the submenus-->
@@ -31,13 +32,13 @@
                         </div>
                     </li>
                     <li class="item" id="analysis">
-                        <a onclick="SaveToLocalStorage()" class="btn">Analysis</a>
+                        <a onclick="PressAnalysisButtonToLocalStorage()" class="btn">Analysis</a>
                     </li>
                     <li class="item" id="report">
-                        <a href="#report" class="btn">Report</a>
+                        <a href="#" class="btn">Report</a>
                     </li>
                 </ul>
-                <button id="clearStorage">Reset</button>
+                <button id="clearStorage">Restart</button>
             </div>
         </div>
         <!--main screen column-->
@@ -119,30 +120,32 @@
                         The current protection study at Whitesand includes two main types of
                         animals: monkeys and hyenas. The ratio between the two types of
                         animals has always been
-                        <div class="draggable study_drag" draggable="true" data-title="Monkeys for 3 Hayaenas">10</div>
+                        <div class="draggable study_drag" id="monkeys_for_haeyenas" draggable="true"
+                            data-title="Monkeys for 3 Hayaenas">10</div>
                         monkeys
-                        for <div class="draggable study_drag" draggable="true" data-title="Hayaenas for 10 Monkeys">3
+                        for <div class="draggable study_drag" id="haeyanas_for_monkeys" draggable="true"
+                            data-title="Hayaenas for 10 Monkeys">3
                         </div>
                         hyaenas; however, in year 8 the number of monkeys decreased by<div class="draggable study_drag"
-                            draggable="true" data-title="Monkeys decrease in year 8">20%</div>
-                        while the <div class="draggable study_drag" draggable="true"
+                            draggable="true" id="20%" data-title="Monkeys decrease in year 8">20%</div>
+                        while the <div class="draggable study_drag" draggable="true" id="evolution"
                             data-title="Evolution of Hayaenas in Y8 Hayaenas">number of hyaenas didn’t change</div>
                         <br><br>
                         <div class="container">The main food source for Monkeys is the Whitesand banana tree
-                            <div class="draggable study_drag" draggable="true"
+                            <div class="draggable study_drag" id="ratio" draggable="true"
                                 data-title="Ratio of banana trees /monkeys">The
                                 ratio between banana trees and monkeys in Year
                                 10 in each areas will be the same as Year 8</div>
                         </div>
                         <br>
                         <div class="draggable study_drag" draggable="true"
-                            data-title="General evolution of banana trees">The
+                            data-title="General evolution of banana trees" id="banana_trees_evolution">The
                             number of banana trees doesn’t change between
                             years</div>
                         <div class="container">, with the
                             exception of Maya Forest, where it is expected to decrease by<div
                                 class="draggable study_drag" draggable="true"
-                                data-title="Maya Forest yearly decrease of trees">
+                                data-title="Maya Forest yearly decrease of trees" id="10%">
                                 10%</div>
                             before the end of each year. <br> <br></div>
                         <div class="container">In order to reach the target number of
@@ -150,7 +153,8 @@
                             the
                             research
                             team can move the banana trees from one area to the other. For every
-                            <div class="draggable study_drag" draggable="true" data-title="Transplant of trees effect">5
+                            <div class="draggable study_drag" draggable="true" id="will_die"
+                                data-title="Transplant of trees effect">5
                                 trees
                                 moved, 1 will die</div> due to the change of
                             environment.
@@ -159,18 +163,21 @@
                         <div class="container">The research team has currently defined the following activities to
                             be
                             completed at the end of year 9:</div>
-                        <div class="draggable study_drag" draggable="true" data-title="Activity in Chocolate Rock">
+                        <div class="draggable study_drag" draggable="true" id="activity_chocolate"
+                            data-title="Activity in Chocolate Rock">
                             Move
                             10
                             trees from Chocolate Rock to Maya Forest
                         </div>
                         <br>
-                        <div class="draggable study_drag" draggable="true" data-title="Activity in Blue Lagoon">Move
+                        <div class="draggable study_drag" draggable="true" id="activity_lagoon"
+                            data-title="Activity in Blue Lagoon">Move
                             18
                             trees
                             from Blue Lagoon to South Beach</div>
                         <br>
-                        <div class="draggable study_drag" draggable="true" data-title="Activity in South Beach">Keep
+                        <div class="draggable study_drag" draggable="true" id="activity_beach"
+                            data-title="Activity in South Beach">Keep
                             5
                             trees
                             in South Beach as reserves for the

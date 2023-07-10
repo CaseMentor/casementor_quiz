@@ -45,6 +45,7 @@
 
 .left {
     width: 7%;
+    margin-left: 15px;
 }
 
 .main_screen {
@@ -102,12 +103,13 @@
     display: block;
     border-radius: 10px;
     border: 2px solid var(--just_black);
-    padding: 8px 5px;
+    padding: 4px 7px;
     background-color: #edf4ff;
     color: var(--just_black);
     text-decoration: none;
     position: relative;
     font-weight: 400;
+    cursor: pointer;
 }
 
 #written {
@@ -275,7 +277,7 @@
     border-color: rgb(179, 187, 255);
     border-width: 3px;
     cursor: pointer;
-    bottom: 0;
+    bottom: 10px;
     background-color: #d6dce5;
     z-index: 1000;
     height: fit-content;
@@ -615,10 +617,12 @@
     right: -20px;
 }
 
-#count_down {
-    position: absolute;
-    left: 40%;
+.timer {
+    text-align: center;
+    margin: 5px;
 }
+
+
 
 .sortable .remove {
     position: absolute;

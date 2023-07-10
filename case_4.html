@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10 Cases | Case 4</title>
     <link rel="stylesheet" href="./style/case_4.css">
+    <link rel="stylesheet" href="./style/cases_general.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -14,15 +15,16 @@
 </head>
 
 <body class="body">
-    <p id="count_down"></p>
-    <br>
+    <div class="timer">
+        <p id="count_down"></p>
+    </div>
     <div id="row">
         <div class="left column">
             <!--build the menu and the submenus-->
             <div class="menu">
                 <ul>
                     <li class="item" id="invest">
-                        <a href="#invest" class="btn_active">Case Questions</a>
+                        <a href="#" class="btn_active">Case Questions</a>
                         <div class="smenu">
                             <a href="#" class="target">Case 1</a>
                             <a href="#" class="target">Case 2</a>
@@ -37,6 +39,8 @@
                         </div>
                     </li>
                 </ul>
+                <button id="clearStorage">Restart</button>
+
             </div>
         </div>
         <div class="main_screen column">
@@ -84,7 +88,9 @@
                     </tr>
                 </table>
                 <div id="question_title">Question</div>
+                <br>
                 <p>For which year and which region there was the highest percentage increase in banana trees?</p>
+                <br>
                 <form action="">
                     <label for="Case 4 Year">Year</label>
                     <select class="select_box" name="case_4_year" id="Case 4 Year">
@@ -94,6 +100,8 @@
                         <option value="y13_y14">Y13-Y14</option>
                     </select>
                     <br>
+                    <br>
+
                     <label for="Case 4 Region">Region</label>
                     <select class="select_box" name="case_4_Region" id="Case 4 Region">
                         <option value="" selected disabled hidden>Choose</option>
@@ -108,7 +116,7 @@
             <div class="container_main_screen">
                 <div class="overlay" id="overlay" hidden>
                     <div class="confirm-box">
-                        Do you want to move to the next question?
+                        <h2 id="forward">Do you want to move to the next question?</h2><br>
                         <p id="inside_confirm_p">You won’t be able to change your answer</p>
                         <br>
                         <button onclick="isConfirm(false)" class="confirm_btn">Back to question</button>

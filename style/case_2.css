@@ -313,6 +313,7 @@ td:nth-child {
   text-align: left;
   float: right;
   margin-top: 20px;
+  margin-left: 60px;
 }
 
 #the_question_title {
