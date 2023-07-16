@@ -44,6 +44,7 @@
   border-top: 3px solid rgb(226, 226, 255);
   border-bottom: 3px solid rgb(226, 226, 255);
   border-right: 15px solid rgb(226, 226, 255);
+  overflow-y: auto;
   height: 100vh;
   background-color: var(--inner) !important;
 }
@@ -71,87 +72,7 @@
   height: 20px;
 }
 
-/*build the menu style*/
-.menu {
-  width: 200px;
-  border-radius: 10px;
-  overflow: hidden;
-}
 
-
-/*the menu buttons*/
-.btn {
-  display: block;
-  border-radius: 10px;
-  border: 2px solid var(--just_black);
-  padding: 8px 5px;
-  background-color: var(--capiton);
-  color: var(--just_black);
-  text-decoration: none;
-  position: relative;
-}
-
-.btn_active::before {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #17c0eb;
-  left: 20px;
-  display: none;
-}
-
-.btn i {
-  margin-right: 10px;
-}
-
-.btn_active {
-  display: block;
-  padding: 4px 7px;
-  background-color: #8497b0;
-  color: var(--capiton);
-  text-decoration: none;
-  position: relative;
-  border: 2px solid var(--just_black);
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-/*the sub-menu buttons*/
-.smenu {
-  background-color: var(--inner);
-  overflow: hidden;
-  transition: max-height 0.3s;
-  max-height: 0;
-  padding: 2px 2px;
-  margin-left: 10px;
-  max-height: 100%;
-}
-
-.smenu a {
-  display: block;
-  text-decoration: none;
-  padding: 6px 18px;
-  border-radius: 10px;
-  background-color: var(--nav_blue);
-  font-size: 16px;
-  color: var(--just_black);
-  margin: 4px 0;
-  position: relative;
-  border: 2px solid var(--just_black);
-}
-
-.smenu a:hover::before {
-  opacity: 1;
-}
-
-.smenu a:hover {
-  color: var(--capiton);
-}
-
-.item:target .smenu {
-  max-height: 10em;
-}
 
 /*the Research journal*/
 .right_screen {
@@ -218,9 +139,9 @@
   color: var(--just_black);
   position: relative;
   float: right;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-right: 20px;
-
+  margin-bottom: 50px;
   font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
@@ -312,6 +233,7 @@ td:nth-child {
   max-width: 95%;
   text-align: left;
   float: right;
+  margin-right: 15px;
   margin-top: 20px;
   margin-left: 60px;
 }

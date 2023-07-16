@@ -1,10 +1,7 @@
-body {}
-
-
 #clearStorage {
-    position: absolute;
+    position: relative;
     left: 0;
-    margin-top: 210px;
+    bottom: 20px;
     margin-left: 30px;
     float: right;
     z-index: 1000;
@@ -119,4 +116,9 @@ body {}
 
 .item:target .smenu {
     max-height: 10em;
+}
+
+#inside_confirm_p {
+    text-align: center;
+    font-weight: 200;
 }

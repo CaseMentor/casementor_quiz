@@ -46,6 +46,7 @@
   border-right: 10px solid var(--capiton);
   height: 100vh;
   background-color: var(--inner);
+  overflow-y: auto;
 }
 
 /*the main screen */
@@ -196,9 +197,8 @@
   color: var(--just_black);
   position: relative;
   float: right;
-  margin-top: 50px;
+  margin-top: 20px;
   margin-right: 20px;
-
   font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);

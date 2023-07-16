@@ -41,6 +41,7 @@
   border-right: 10px solid var(--capiton);
   height: 100vh;
   background-color: var(--inner);
+  overflow-y: auto;
 }
 
 /*the main screen */
@@ -208,13 +209,13 @@
   padding: 20px 20px;
   background-color: var(--capiton);
   color: var(--just_black);
+  margin-bottom: 20px;
   position: absolute;
   margin-left: 47%;
   float: right;
   border-radius: 20px;
   cursor: pointer;
   background-color: #d6dce5;
-  bottom: 0%;
 }
 
 .confirm_btn {

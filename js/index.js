@@ -79,16 +79,23 @@ $(function () {
     helper: function () {
       return $(this).clone().css("z-index", 10).appendTo('body');
     },
-    revert: 'invalid',
+    revert: function (valid) {
+      if (!valid) {
+        $(this).removeClass('afterDrag').addClass('draggable ui-draggable ui-draggable-handle');
+        $(this).draggable('enable');
+
+        return true;
+      }
+    },
     start: function (event, ui) {
       $(ui.helper).addClass('dragging');
       $(this).addClass('afterDrag').removeClass('ui-draggable ui-draggable-handle ui-draggable-dragging');
+      $(this).draggable('disable');
 
     },
     stop:
       function (event, ui) {
         $(ui.helper).removeClass('dragging');
-        $(this).removeClass('draggable')
       },
   })
 

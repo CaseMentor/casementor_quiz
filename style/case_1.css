@@ -46,6 +46,7 @@
   border-bottom: 3px solid rgb(226, 226, 255);
   border-right: 15px solid rgb(226, 226, 255);
   height: 100vh;
+  overflow-y: auto;
   background-color: var(--inner) !important;
 }
 
@@ -215,7 +216,7 @@
   float: right;
   margin-top: 50px;
   margin-right: 20px;
-
+  margin-bottom: 15px;
   font-weight: 500;
   border-radius: 10px;
   border-color: rgb(179, 187, 255);
@@ -291,7 +292,7 @@
 }
 
 .items {
-  background-color: #d0cece;
+  background-color: #ffffff;
 }
 
 table {
@@ -303,13 +304,13 @@ table {
 
 td,
 th {
-  border: 1px solid #dddddd;
+  border: 1px solid #ffffff;
   padding: 6px;
   text-align: center;
 }
 
 td:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #ffffff;
 }
 
 .draggable {

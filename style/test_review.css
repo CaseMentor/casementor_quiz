@@ -20,6 +20,7 @@
   font-weight: 200;
   font-size: 26px;
   color: var(--capiton);
+
 }
 
 /* make the columns look aligned*/
@@ -45,7 +46,7 @@
   border-bottom: 3px solid var(--capiton);
   border-right: 10px solid var(--capiton);
   background-color: var(--inner);
-  overflow-y: scroll;
+  overflow-y: auto;
 
 
 }
@@ -117,6 +118,7 @@
   border: 2px solid var(--just_black);
   border-radius: 10px;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 /*the sub-menu buttons*/
