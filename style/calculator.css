@@ -483,3 +483,7 @@ label {
 .Written {
   margin-left: 50px;
 }
+
+.question_title {
+  font-weight: 450;
+}

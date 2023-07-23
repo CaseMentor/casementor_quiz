@@ -256,3 +256,45 @@ label {
   position: absolute;
   left: 40%;
 }
+
+.right_screen .draggable {
+  margin: 10px;
+  border: 0px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+}
+
+.right_screen .sortable {
+  margin: 10px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+  text-align: left;
+  padding: 0;
+
+}
+
+
+.afterDrag {
+  background-color: var(--just_black);
+  color: grey;
+  border: 1px solid grey;
+  cursor: move;
+  text-align: center;
+}
+
+.right_screen .afterDrag {
+  margin: 10px;
+  border: 0px;
+  width: fit-content;
+  background-color: var(--capiton);
+  color: var(--just_black);
+  border: 1px var(--just_black);
+}
+
+.row_title {
+  width: 120px;
+}

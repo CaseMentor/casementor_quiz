@@ -146,8 +146,16 @@ $(document).ready(function () {
             // Replace % with an empty string, convert to number and divide by 100
             value = Number(value.replace("%", "")) / 100;
           }
+          const lastChar = $(this).val().slice(-1);
+
+          // If the last character is a math sign, append the value instead of replacing
+          if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
+            $(this).val($(this).val() + value);
+          } else {
+            $(this).val(value);
+          }
           // $(this).val($(this).val() + value);
-          $(this).val(value);
+          // $(this).val(value);
 
         }
       }
@@ -380,7 +388,7 @@ document.getElementById('continueButton').addEventListener('click', function () 
   var radios = document.getElementsByName('page');
   for (var i = 0, length = radios.length; i < length; i++) {
     if (radios[i].checked) {
-      localStorage.setItem('5.graph_type', radios[i].id)
+      localStorage.setItem('5. graph_type', radios[i].id)
       window.location.href = radios[i].value;
       break;
     }

@@ -229,7 +229,7 @@
   color: var(--just_black);
   position: relative;
   float: right;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   margin-right: 20px;
   font-weight: 500;
   border-radius: 10px;
@@ -239,7 +239,7 @@
   background-color: #d6dce5;
   z-index: 1000;
   height: fit-content;
-  margin-bottom: 400px;
+  margin-bottom: 30px;
 
 }
 

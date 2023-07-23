@@ -54,7 +54,7 @@
                     <br>
                     <button onclick="isConfirm(false)" class="confirm_btn">Back to the question</button>
                     <button
-                        onclick="localStorage.setItem('calculator_state','review'); location.href='calculator_review.html#analysis';"
+                        onclick="localStorage.setItem('calculator_state','review'); location.href='calculator_review.html';"
                         class="confirm_btn">Move to
                         review</button>
                 </div>
@@ -64,8 +64,7 @@
         <div class="main_screen column">
             <div class="container_main_screen">
                 <div class="question_text">
-                    Question 3
-                    <br>
+                    <div class="question_title">Question 3</div>
                     <br>
                     How much should the banana trees
                     increase to reach the target? Add zero if the
@@ -73,12 +72,12 @@
                     <div class="input_box">
                         <br>
                         <label for="first_answer_forest">Maya Forest</label>
-                        <input type="text" class="input_answer" id="3.Quesion 3 Maya Forest" name="third_answer_forest"
+                        <input type="text" class="input_answer" id="3. Quesion 3 Maya Forest" name="third_answer_forest"
                             min="0">
                         <br>
                         <label for="first_answer_lagoon">Blue Lagoon</label>
-                        <input type="text" class="input_answer" name="third_answer_lagoon" id="3.Question 3 Blue Lagoon"
-                            min="0">
+                        <input type="text" class="input_answer" name="third_answer_lagoon"
+                            id="3. Question 3 Blue Lagoon" min="0">
                     </div>
                 </div>
                 <div class="calculator">
@@ -88,10 +87,10 @@
                         <div id="result" class="draggable" draggable="true">0</div>
                     </div>
                     <div class="buttons">
-                        <button class="calculator-btn items">AC</button>
+                        <button class="calculator-btn items" data-value="AC">AC</button>
                         <button class="calculator-btn items" data-value="(">(</button>
                         <button class="calculator-btn items" data-value=")">)</button>
-                        <button class="calculator-btn items">C</button>
+                        <button class="calculator-btn items" data-value="C">C</button>
                         <button class="calculator-btn" data-value="7">7</button>
                         <button class="calculator-btn" data-value="8">8</button>
                         <button class="calculator-btn" data-value="9">9</button>

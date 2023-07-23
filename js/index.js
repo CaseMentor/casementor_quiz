@@ -142,8 +142,8 @@ $(function () {
     var elementId = $(this).parent().attr('id');
 
     // Change the class of the corresponding element in the main column back to 'draggable'
-    $('#' + elementId).removeClass('afterDrag').addClass('draggable');
-
+    $('#' + elementId).removeClass('afterDrag ui-draggable-disabled').addClass('draggable');
+    $('#' + elementId).draggable('enable');
     $(this).parent().next('hr').remove();
     $(this).closest('div').remove();
 

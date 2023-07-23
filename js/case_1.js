@@ -173,7 +173,14 @@ $(function () {
           // Replace % with an empty string, convert to number and divide by 100
           value = Number(value.replace("%", "")) / 100;
         }
-        $(this).val(value);
+        const lastChar = $(this).val().slice(-1);
+
+        // If the last character is a math sign, append the value instead of replacing
+        if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
+          $(this).val($(this).val() + value);
+        } else {
+          $(this).val(value);
+        }
       }
     }
   });
