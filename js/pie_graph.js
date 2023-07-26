@@ -45,6 +45,18 @@ var x = setInterval(function () {
     if (distance < 0) {
         clearInterval(x);
         document.getElementById("count_down").innerHTML = "Time's Up";
+        // Create a pop-up dialog
+        alert("Time is over!");
+
+        // If the user clicks "OK" (Restart), clear local storage
+        localStorage.clear();
+
+        // Here you might also want to reset any state in your app that depends on local storage
+        localStorage.setItem('isLoggedIn', 'true');
+        countDownDate = new Date().getTime() + 35 * 60 * 1000;
+        window.location.href = "index.html";
+        // And you could potentially restart the countdown or redirect the user
+        // Reload the page
     } else {
         // Store countdown date to localStorage
         localStorage.setItem('countDownDate', countDownDate);
@@ -78,6 +90,7 @@ $(function () {
                 value = Number(value.replace("%", "")) / 100;
             }
             $(this).val(value);
+            updateChart();
         }
     });
 })
@@ -207,19 +220,19 @@ var myChart = new Chart(ctx, {
 });
 
 function updateChart() {
-    var value1 = document.getElementById('6.Graph - Maya forest target').value || 0;
-    var value2 = document.getElementById('6.Graph - Blue lagoon target').value || 0;
-    var value3 = document.getElementById('6.Graph - Maya forest actual').value || 0;
-    var value4 = document.getElementById('6.Graph - Blue lagoon actual').value || 0;
+    var value1 = document.getElementById('6. Graph - Maya forest target').value || 0;
+    var value2 = document.getElementById('6. Graph - Blue lagoon target').value || 0;
+    var value3 = document.getElementById('6. Graph - Maya forest actual').value || 0;
+    var value4 = document.getElementById('6. Graph - Blue lagoon actual').value || 0;
 
     myChart.data.datasets[0].data = [value1, value2, value3, value4];
     myChart.update();
 }
 // Add input event listeners to all input fields
-document.getElementById('6.Graph - Maya forest target').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Blue lagoon target').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Maya forest actual').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Blue lagoon actual').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Maya forest target').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Blue lagoon target').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Maya forest actual').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Blue lagoon actual').addEventListener('input', updateChart);
 
 $(document).on('click', '.remove', function () {
     $(this).parent().next('hr').remove();

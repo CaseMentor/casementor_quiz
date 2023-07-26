@@ -48,6 +48,18 @@ $(document).ready(function () {
     if (distance < 0) {
       clearInterval(x);
       document.getElementById("count_down").innerHTML = "Time's Up";
+      // Create a pop-up dialog
+      alert("Time is over!");
+
+      // If the user clicks "OK" (Restart), clear local storage
+      localStorage.clear();
+
+      // Here you might also want to reset any state in your app that depends on local storage
+      localStorage.setItem('isLoggedIn', 'true');
+      countDownDate = new Date().getTime() + 35 * 60 * 1000;
+      window.location.href = "index.html";
+      // And you could potentially restart the countdown or redirect the user
+      // Reload the page
     } else {
       // Store countdown date to localStorage
       localStorage.setItem('countDownDate', countDownDate);
@@ -111,8 +123,19 @@ function performCalculation(value) {
       if (isNaN(result)) {
         alert('Invalid Expression');
       } else {
-        $('#inputField').val(result);
-        $('#result').text(result);
+        // format result
+        let formattedResult = parseFloat(result.toFixed(2)).toString();
+        if (formattedResult.indexOf('.') !== -1) {
+          while (formattedResult[formattedResult.length - 1] === '0') {
+            formattedResult = formattedResult.slice(0, -1);
+          }
+          if (formattedResult[formattedResult.length - 1] === '.') {
+            formattedResult = formattedResult.slice(0, -1);
+          }
+        }
+        $('#inputField').val(formattedResult);
+
+        $('#result').text(formattedResult);
       }
     } catch (error) {
       alert('Invalid Expression');
@@ -176,7 +199,7 @@ $(function () {
         const lastChar = $(this).val().slice(-1);
 
         // If the last character is a math sign, append the value instead of replacing
-        if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '/') {
+        if (lastChar === '+' || lastChar === '-' || lastChar === '*' || lastChar === '(' || lastChar === ')' || lastChar === '/') {
           $(this).val($(this).val() + value);
         } else {
           $(this).val(value);

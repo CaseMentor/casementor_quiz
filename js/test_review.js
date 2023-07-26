@@ -30,7 +30,29 @@ items.sort(function (a, b) {
     if (a.key > b.key) { return 1; }
     return 0;
 });
+// Sort the array based on the key property
+items.sort(function (a, b) {
+    // Check if a.key or b.key starts with "Case 10"
+    var aCase10 = a.key.startsWith("Case 10");
+    var bCase10 = b.key.startsWith("Case 10");
 
+    // If both keys start with "Case 10" or if neither do, sort them alphabetically
+    if ((aCase10 && bCase10) || (!aCase10 && !bCase10)) {
+        if (a.key < b.key) { return -1; }
+        if (a.key > b.key) { return 1; }
+        return 0;
+    }
+
+    // If a.key starts with "Case 10" but b.key does not, a should come later
+    if (aCase10) {
+        return 1;
+    }
+
+    // If b.key starts with "Case 10" but a.key does not, b should come later
+    if (bCase10) {
+        return -1;
+    }
+});
 
 // Loop through the sorted array and add each item to the table
 for (var i = 0; i < items.length; i++) {

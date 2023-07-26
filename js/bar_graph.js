@@ -78,6 +78,7 @@ $(function () {
                 value = Number(value.replace("%", "")) / 100;
             }
             $(this).val(value);
+            updateChart();
         }
     });
 })
@@ -216,10 +217,10 @@ $(document).on('click', '.remove', function () {
 });
 
 function updateChart() {
-    var value1 = document.getElementById('6.Graph - Maya forest target').value || 0;
-    var value2 = document.getElementById('6.Graph - Blue lagoon target').value || 0;
-    var value3 = document.getElementById('6.Graph - Maya forest actual').value || 0;
-    var value4 = document.getElementById('6.Graph - Blue lagoon actual').value || 0;
+    var value1 = document.getElementById('6. Graph - Maya forest target').value || 0;
+    var value2 = document.getElementById('6. Graph - Blue lagoon target').value || 0;
+    var value3 = document.getElementById('6. Graph - Maya forest actual').value || 0;
+    var value4 = document.getElementById('6. Graph - Blue lagoon actual').value || 0;
 
     myChart.data.datasets[0].data = [value1, value2];
     myChart.data.datasets[1].data = [value3, value4];
@@ -228,10 +229,10 @@ function updateChart() {
 
 
 // Add input event listeners to all input fields
-document.getElementById('6.Graph - Maya forest target').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Blue lagoon target').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Maya forest actual').addEventListener('input', updateChart);
-document.getElementById('6.Graph - Blue lagoon actual').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Maya forest target').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Blue lagoon target').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Maya forest actual').addEventListener('input', updateChart);
+document.getElementById('6. Graph - Blue lagoon actual').addEventListener('input', updateChart);
 
 document.getElementById('clearStorage').addEventListener('click', function () {
     // Temporarily store isLoggedIn
