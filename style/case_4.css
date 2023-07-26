@@ -53,7 +53,7 @@
   text-align: left;
   margin-top: 20px;
   margin-right: 30px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: var(--inner);
